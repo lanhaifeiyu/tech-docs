@@ -33,7 +33,7 @@
 
    ```shell
    #常用命令：yum list | grep redis
-   yum -y install epel-release (提供更多的软件包)
+   yum -y install epel-release (epel安装源,提供更多的软件包)
    yum install net-tools
    yum -y install wget
    yum install -y bash-completion
