@@ -67,8 +67,44 @@
 
 9. 修改文件目录的权限，切换到用户lh，启动对应软件
 
-   ```
-   chmod
+   ```shell
+   #https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
+   #https://blog.csdn.net/qq_36441027/article/details/80636526
+   
+   chown lh /var/log/nginx/access.log
+   chown lh /var/log/nginx/error.log
+   chgrp lhfeiyu /var/log/nginx/access.log
+   chgrp lhfeiyu /var/log/nginx/error.log
+   chown lh /etc/nginx/*
+   chgrp lhfeiyu /etc/nginx/*
+   
+   #nginx: 修改nginx服务的启动权限，编辑/usr/lib/systemd/system/nginx.service:
+       [Service]
+       User=lh
+       Group=lhfeiyu
+      
+   #刷新
+   systemctl daemon-reload
+   
+   #tomcat: 新增tomcat服务文件，在 /usr/lib/systemd/system (旧位置：/etc/systemd/system ) 目录下创建tomcat.service文件，并编辑内容如下
+       [Unit]
+       Description=tomcat
+       After=network.target
+   
+       [Service]
+       User=lh
+       Group=lhfeiyu
+   
+       Type=forking
+       ExecStart=/usr/local/lh/tomcat/bin/start.sh
+       ExecReload=
+       ExecStop=/usr/local/lh/tomcat/bin/stop.sh
+       PrivateTmp=true
+   
+       [Install]
+       WantedBy=multi-user.target
+   
+   
    ```
 
    
