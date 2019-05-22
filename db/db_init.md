@@ -4,8 +4,10 @@ Version 8.0.16
 ## Create DataBase
 
 ```mysql
-CREATE DATABASE TechShareMgt DEFAULT CHARACTER 
-SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE
+IF
+	NOT EXISTS tech_share DEFAULT CHARACTER 
+	SET utf8 COLLATE utf8_general_ci;
 ```
 
 
@@ -16,8 +18,8 @@ SET utf8 COLLATE utf8_general_ci;
 
 /*===================================================================
 Server:	182.61.49.180	
-Database:	TechShareMgt
-DataTable: Category
+Database:	tech_share
+DataTable: category
 Author:		Gene	
 CeateDate:	2019-05-22
 Version:	1.0
@@ -25,25 +27,24 @@ Description:	分类表
 =====================================================================*/
 
 ```mysql
-create table TechShareMgt.Category(
-     `SysNo` INT  NOT NULL  AUTO_INCREMENT  COMMENT'系统编号',
-     `Parent_SysNo` INT  NOT NULL  COMMENT'父节点系统编号',
-     `Category_Name` VARCHAR(50)  NULL  COMMENT'分类名称',
-     `Priority` TINYINT  NOT NULL  COMMENT'排序优先级',
-     `Status` TINYINT  NOT NULL  COMMENT'状态',
-     `InUserSysNo` INT  NOT NULL  COMMENT'创建者系统编号',
-     `InUserName` VARCHAR(40)  NOT NULL  COMMENT'创建者显示名',
-     `InDate` DATETIME  NOT NULL  DEFAULT NOW()  COMMENT'创建时间',
-     `EditUserSysNo` INT  NOT NULL  COMMENT'最后修改人系统编号',
-     `EditUserName` VARCHAR(40)  NOT NULL  COMMENT'最后修改人显示名',
-     `EditDate` DATETIME  NOT NULL  DEFAULT NOW()  COMMENT'最后修改时间'
-     ,PRIMARY KEY (`SysNo`)
-
-) AUTO_INCREMENT=1 COMMENT='分类表';
-
-alter table TechShareMgt.Category add index IX_Status(`Status`);
-alter table TechShareMgt.Category add index IX_Parent_SysNo(`Parent_SysNo`);
-alter table TechShareMgt.Category add index IX_Priority(`Priority`);
+CREATE TABLE
+IF
+	NOT EXISTS tech_share.category (
+		`id` INT NOT NULL AUTO_INCREMENT COMMENT '系统编号',
+		`parent_id` INT NOT NULL COMMENT '父节点系统编号',
+		`category_name` VARCHAR ( 50 ) NULL COMMENT '分类名称',
+		`priority` TINYINT NOT NULL COMMENT '排序优先级',
+		`status` TINYINT NOT NULL COMMENT '状态',
+		`in_user_id` BIGINT NOT NULL COMMENT '创建用户id',
+		`in_user_name` VARCHAR ( 64 ) NOT NULL COMMENT '创建用户名',
+		`in_date` DATETIME ( 3 ) NOT NULL DEFAULT CURRENT_TIMESTAMP ( 3 ) COMMENT '创建时间',
+		`edit_user_id` BIGINT NOT NULL COMMENT '编辑用户id',
+		`edit_user_name` VARCHAR ( 64 ) NOT NULL COMMENT '编辑用户名',
+		`edit_date` DATETIME ( 3 ) NOT NULL DEFAULT CURRENT_TIMESTAMP ( 3 ) COMMENT '编辑时间',
+		PRIMARY KEY ( `id` ) 
+	) COMMENT = '分类表';
+CREATE INDEX `idx_parent_id` ON tech_share.category ( `parent_id` );
+CREATE INDEX `idx_priority` ON tech_share.category ( `priority` );
 
 
 ```
