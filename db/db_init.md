@@ -16,15 +16,14 @@ IF
 
 ## Create Table
 
-/*===================================================================
-Server:	182.61.49.180	
-Database:	tech_share
-DataTable: category
-Author:		Gene	
-CeateDate:	2019-05-22
-Version:	1.0
-Description:	分类表
-=====================================================================*/
+-- ===================================================================
+-- Server:	182.61.49.180	
+-- Database:	tech_share
+-- DataTable: category
+-- Author:		Gene	
+-- CreateDate:	2019-05-22
+-- Description:	分类表
+-- =====================================================================
 
 ```mysql
 CREATE TABLE
