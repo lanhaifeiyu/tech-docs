@@ -3,8 +3,11 @@ Version 8.0.16
 
 ## Create DataBase
 
-`CREATE DATABASE TechShareMgt DEFAULT CHARACTER 
-SET utf8 COLLATE utf8_general_ci;`
+```mysql
+CREATE DATABASE TechShareMgt DEFAULT CHARACTER 
+SET utf8 COLLATE utf8_general_ci;
+```
+
 
 <!--备注：COLLATE(排序):_ci结尾表示大小写不敏感（caseinsensitive）,_cs表示大小写敏感（case sensitive）,_bin表示二进制的比较（binary）-->
 
@@ -21,7 +24,7 @@ Version:	1.0
 Description:	分类表
 =====================================================================*/
 
-
+```mysql
 create table TechShareMgt.Category(
      `SysNo` INT  NOT NULL  AUTO_INCREMENT  COMMENT'系统编号',
      `Parent_SysNo` INT  NOT NULL  COMMENT'父节点系统编号',
@@ -41,5 +44,8 @@ create table TechShareMgt.Category(
 alter table TechShareMgt.Category add index IX_Status(`Status`);
 alter table TechShareMgt.Category add index IX_Parent_SysNo(`Parent_SysNo`);
 alter table TechShareMgt.Category add index IX_Priority(`Priority`);
+
+
+```
 
 
