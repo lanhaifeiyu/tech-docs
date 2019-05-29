@@ -79,30 +79,30 @@
    chgrp lhfeiyu /etc/nginx/*
    
    #nginx: 修改nginx服务的启动权限，编辑/usr/lib/systemd/system/nginx.service:
-       [Service]
-       User=lh
-       Group=lhfeiyu
+   [Service]
+   User=lh
+   Group=lhfeiyu
       
    #刷新
    systemctl daemon-reload
    
-   #tomcat: 新增tomcat服务文件，在 /usr/lib/systemd/system (旧位置：/etc/systemd/system ) 目录下创建tomcat.service文件，并编辑内容如下
-       [Unit]
-       Description=tomcat
-       After=network.target
+   #tomcat: 新增tomcat服务文件，在 /usr/lib/systemd/system (/etc/systemd/system ) 目录下创建tomcat.service文件，并编辑内容如下
+   [Unit]
+   Description=tomcat
+   After=network.target
    
-       [Service]
-       User=lh
-       Group=lhfeiyu
+   [Service]
+   User=lh
+   Group=lhfeiyu
    
-       Type=forking
-       ExecStart=/usr/local/lh/tomcat/bin/start.sh
-       ExecReload=
-       ExecStop=/usr/local/lh/tomcat/bin/stop.sh
-       PrivateTmp=true
+   Type=forking
+   ExecStart=/usr/local/lh/tomcat/bin/startup.sh
+   ExecReload=/usr/local/lh/tomcat/bin/shutdown.sh & /usr/local/lh/tomcat/bin/startup.sh
+   ExecStop=/usr/local/lh/tomcat/bin/shutdown.sh
+   PrivateTmp=true
    
-       [Install]
-       WantedBy=multi-user.target
+   [Install]
+   WantedBy=multi-user.target
    
    
    ```
