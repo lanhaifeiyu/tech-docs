@@ -104,10 +104,28 @@
    [Install]
    WantedBy=multi-user.target
    
+   #------
+   https://blog.51cto.com/newthink/1775489
+   https://blog.51cto.com/vekergu/1623700
+   http://zhmgz.lofter.com/post/90909_aab67c8
+   https://askubuntu.com/questions/692701/allowing-user-to-run-systemctl-systemd-services-without-password/774566
+   systemctl --user start tomcat.service
+   
    
    ```
 
    
 
-10. 
+10. 会用户开放部分root权限
+
+    ```
+    #1.修改/etc/sudoers文件权限
+    root    ALL=(ALL)       ALL
+    #airson add
+    lh      ALL=(ALL)       NOPASSWD: /bin/systemctl restart tomcat.service
+    ```
+
+    
+
+11. 
 
