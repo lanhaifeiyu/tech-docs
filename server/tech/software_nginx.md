@@ -25,7 +25,18 @@
    firewall-cmd --zone=public --add-port=8081/tcp --permanent
    firewall-cmd --reload
    #更新配置文件 /etc/nginx/nignx.conf，参看nginx最简配置.md
-   #.
+   #修改文件权限
+   chown -R lh /var/log/nginx/ && chgrp -R lhfeiyu /var/log/nginx/
+   chown -R lh /etc/nginx/ && chgrp -R lhfeiyu /etc/nginx/
+   #更改服务运行权限
+   #nginx: 修改nginx服务的启动权限，编辑/usr/lib/systemd/system/nginx.service:
+   [Service]
+   User=lh
+   Group=lhfeiyu
+      
+   #刷新
+   systemctl daemon-reload
+   
    #访问ngnix
    http://182.61.49.180:8081/
    ```

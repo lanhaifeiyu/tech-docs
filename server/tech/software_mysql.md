@@ -3,80 +3,47 @@
 1. ##### 安装mysql
 
    ```shell
-   #设置nginx安装源(直接yum install有很可能不是最新版本)
-   vim /etc/yum.repos.d/nginx.repo
-       [nginx]
-       name=nginx repo
-       baseurl=http://nginx.org/packages/centos/7/$basearch/
-       gpgcheck=0
-       enabled=1
-   yum install -y nginx 
-   systemctl enable nginx
-   systemctl start nginx
-   systemctl status nginx
+   wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+   rpm -Uvh mysql80-community-release-el7-3.noarch.rpm
+   yum repolist all | grep mysql
+   screen -D -RR (避免下载时间太长，连接断开)
+   yum install mysql-community-server
+   #启动mysql服务
+   systemctl start mysqld.service
+   #查看运行状态
+   systemctl status mysqld.service
+   #设置开机启动
+   systemctl enable mysqld.service
    
-   #配置防火墙，开放对应端口
-   firewall-cmd --zone=public --add-port=8081/tcp --permanent
+   #mysql8设置账号密码
+   ##查看自动生成的默认root密码
+   grep 'temporary password' /var/log/mysqld.log
+   mysql -uroot -p
+   ##修改默认密码
+   ALTER USER 'root'@'localhost' IDENTIFIED BY '!new_password';
+   ##允许远程用root账号登陆（根据实际情况决定是否开启）,mysql8版本已经将创建账户和赋予权限的方式分开了
+   #GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '!root_new_password' WITH GRANT OPTION;
+   GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'
+   ##创建普通用户，一般用普通用户操作数据库
+   CREATE USER 'lh'@'%' IDENTIFIED BY '!lh_new_password';
+   #GRANT ALL PRIVILEGES ON *.* TO 'lh'@'%' IDENTIFIED BY '!lh_new_password' WITH GRANT OPTION;
+   GRANT ALL PRIVILEGES ON *.* TO 'lh'@'%'
+   FLUSH PRIVILEGES;
+   USE mysql;
+   SELECT host,user FROM user;
+   quit;
+   
+   #配置防火墙，开放3306端口
+   firewall-cmd --zone=public --add-port=3306/tcp --permanent
    firewall-cmd --reload
-   #更新配置文件 /etc/nginx/nignx.conf，参看nginx最简配置.md
-   #.
-   #访问ngnix
-   http://182.61.49.180:8081/
+   
    ```
 
    
 
-2. ##### nginx最简配置文件 - /etc/nginx/nignx.conf
+2. ##### TODO
 
    ```shell
-   user  nginx;
-   worker_processes  1;
    
-   error_log  /var/log/nginx/error.log warn;
-   pid        /var/run/nginx.pid;
-   
-   
-   events {
-       worker_connections  1024;
-   }
-   
-   
-   http {
-       include       /etc/nginx/mime.types;
-       default_type  application/octet-stream;
-   
-       log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                         '$status $body_bytes_sent "$http_referer" '
-                         '"$http_user_agent" "$http_x_forwarded_for"';
-   
-       access_log  /var/log/nginx/access.log  main;
-   
-       sendfile        on;
-       #tcp_nopush     on;
-   
-       keepalive_timeout  65;
-   
-       #gzip  on;
-   
-       include /etc/nginx/conf.d/*.conf;
-   
-       upstream general {
-           server  182.61.49.180:8080 max_fails=2 fail_timeout=600s;
-           server  182.61.49.180:8080 backup;
-       }
-       
-       server{
-           listen 8081;
-           server_name localhost;
-   
-           location / {
-               proxy_pass http://general;
-           }
-       }
-   
-   }
    ```
-
    
-
-3. 
