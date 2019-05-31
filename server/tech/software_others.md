@@ -8,9 +8,14 @@
    
    
    
-2. ##### TODO
+2. ##### 安装Nenux
 
    ```shell
+   cd /usr/local/lh/pkg
+   #下载
+   wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/3/nexus-3.16.1-02-unix.tar.gz
+   #解压到上级目录
+   tar zxvf nexus-3.16.1-02-unix.tar.gz -C../  
    
    ```
    
