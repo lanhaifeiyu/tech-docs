@@ -26,26 +26,19 @@
       ```
    3. 出现异常(The version of the JVM must be 1.8)
    设置Nexus依赖的JAVA环境（正常情况不用设置，因nexus 3+以上版本只能依赖jdk1.8，服务器中安装build 12.0.1+12，所以需要再安装一个jdk1.8,并把INSTALL4J_JAVA_HOME_OVERRIDE指向jdk1.8路径）
-
-      ![设置Java jdk配置](http://assets.airson.cc/img/tech/linux/soft/Nexus/Nexus%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83-00.jpg)
-
+![设置Java jdk配置](http://assets.airson.cc/img/tech/linux/soft/Nexus/Nexus%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83-00.jpg)
 ![修改配置INSTALL4J_JAVA_HOME_OVERRIDE](http://assets.airson.cc/img/tech/linux/soft/Nexus/Nexus%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83-02.jpg)
+   4. 开放端口
+[开放端口](https://github.com/lanhaifeiyu/tech-docs/blob/develop/server/tech/module_firewall.md)
 
-   4.  开放端口
-
-      [开放端口](https://github.com/lanhaifeiyu/tech-docs/blob/develop/server/tech/module_firewall.md)
-
-   5.  配置Service
-
+   5. 配置Service
    ```shell
    #进入目录
    cd /etc/systemd/system
    #创建Nexus服务
    vim nexus.service
    ```
-   
    添加配置：
-   
    ```shell
    [Unit]
    Description=nexus
@@ -64,7 +57,7 @@
    [Install]
    WantedBy=multi-user.target
    ```
-   
+
    ```shell
    # 刷新配置
    sudo systemctl daemon-reload
@@ -73,10 +66,9 @@
    # 启动
    sudo systemctl start nexus.service
    ```
-   
+
    6. 说明
-   
-      ```shell
+   ```shell
       [Unit]:服务的说明
       
       Description:描述服务
@@ -90,6 +82,6 @@
       PrivateTmp=True表示给服务分配独立的临时空间
       注意：[Service]的启动、重启、停止命令全部要求使用绝对路径
       [Install]服务安装的相关设置，可设置为多用户
-      ```
+   ```
    
       
