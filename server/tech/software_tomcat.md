@@ -34,20 +34,33 @@
    Group=lhfeiyu
    
    Type=forking
+   PIDFile=/usr/local/lh/tomcat/tomcat.pid
    ExecStart=/usr/local/lh/tomcat/bin/startup.sh
-   ExecReload=/usr/local/lh/tomcat/bin/shutdown.sh & /usr/local/lh/tomcat/bin/startup.sh
-   ExecStop=/usr/local/lh/tomcat/bin/shutdown.sh
+   #ExecReload=/usr/local/lh/tomcat/bin/startup.sh & /usr/local/lh/tomcat/bin/shutdown.sh
+   #ExecStop=/usr/local/lh/tomcat/bin/shutdown.sh
+   ExecReload=/bin/kill -s HUP $MAINPID
+   ExecStop=/bin/kill -s QUIT $MAINPID
    PrivateTmp=true
+   Restart=always
    
    [Install]
    WantedBy=multi-user.target
    
+   #--设置pid文件
+   touch /usr/local/lh/tomcat/tomcat.pid
+   chown lh /usr/local/lh/tomcat/tomcat.pid & chgrp lhfeiyu /usr/local/lh/tomcat/tomcat.pid
+   #
+   vim /usr/local/lh/tomcat/bin/catalina.sh
+   #airson add
+   CATALINA_PID=/usr/local/lh/tomcat/tomcat.pid
+   #CATALINA_PID=/usr/local/lh/nexus-3.16.1-02/nexus.pid
+   #参考auth_sudoers.md配置对应权限
    #------
    https://blog.51cto.com/newthink/1775489
    https://blog.51cto.com/vekergu/1623700
    http://zhmgz.lofter.com/post/90909_aab67c8
    https://askubuntu.com/questions/692701/allowing-user-to-run-systemctl-systemd-services-without-password/774566
-   systemctl --user start tomcat.service
+   sudo systemctl restart tomcat.service
    ```
    
    
