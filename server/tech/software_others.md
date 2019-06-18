@@ -81,7 +81,9 @@
       ExecStop为停止命令
       PrivateTmp=True表示给服务分配独立的临时空间
       注意：[Service]的启动、重启、停止命令全部要求使用绝对路径
-      [Install]服务安装的相关设置，可设置为多用户
+      [Install]服务安装的相关设置，可设置为多用户 
    ```
    
-      
+3. ##### Jenkins
+
+jdk选择1.8
