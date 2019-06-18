@@ -1,3 +1,61 @@
+#### tech项目组成：
+
+##### 项目tech-blog(parent):
+
+【module】tech-blog-api：controller的接口，定义：RequestMapping，swagger等，统一定义对外接口，与实现分离。
+
+【module】tech-blog-controller：实现了tech-api的controller
+
+【module】tech-blog-service：核心的业务逻辑，service和dao层，
+
+【dependency】tech-factory
+
+【dependency】tech-common
+
+
+
+##### 项目tech-im(parent):
+
+【module】tech-im-api
+
+【module】tech-im-controller
+
+【module】tech-im-service
+
+【dependency】tech-factory
+
+【dependency】tech-common
+
+
+
+##### 项目tech-factory
+
+##### 项目tech-common
+
+
+
+##### 微服务依赖：
+
+tech-eureka-server：注册中心
+
+tech-config-server：配置中心
+
+tech-gateway-server：网关
+
+tech-hystrix-dashboard：hystrix dashboard & Turbine
+
+
+
+##### 依赖第三方独立服务：
+
+kafka/rabbitmq, nginx, redis, mysql 等
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 项目组成板块：
 
 tech-eureka-server：注册中心
