@@ -42,7 +42,7 @@
 
    若网络不好的话自动安装失败，可以选择手动上传插件，地址：<http://106.13.20.220:8080/pluginManager/advanced>
 
-   ![1561518733639](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\assets\img\1561518733639.png)
+   ![1561518733639](.\assets\img\1561518733639.png)
 
    插件下载地址：<https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/>，<https://updates.jenkins.io/download/plugins/>
 
@@ -52,13 +52,13 @@
 
    1. 添加凭据
 
-      ![1561519320531](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561519320531.png)
+      ![1561519320531](.\assets\img\1561519320531.png)
 
       类型选择SSH Username private key，Private Key填Jenkins服务器上生成的
 
-      ![1561519586851](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561519586851.png)
+      ![1561519586851](.\assets\img\1561519586851.png)
    
-      ![1561519510144](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561519510144.png)
+      ![1561519510144](.\assets\img\1561519510144.png)
    
       配置好git,用ssh的方式拉取代码，并把生成的私钥复制到凭证的Private Key中。Git设置SSH的方式看另一篇文章《git》
 
@@ -66,11 +66,11 @@
 
 1. 配置源代码地址
 
-   ![1561531043943](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561531043943.png)
+   ![1561531043943](.\assets\img\1561531043943.png)
 
 2. 运行脚本
 
-   ![1561531103209](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561531103209.png)
+   ![1561531103209](.\assets\img\1561531103209.png)
 
    - Jenkins中执行shell
 
@@ -121,4 +121,3 @@ then
 ### 参考博客
 
 <https://www.daimafans.com/article/d5700685599342592-p1-o1.html>
-
