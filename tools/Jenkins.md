@@ -1,4 +1,6 @@
-## Jenkins使用
+# Jenkins使用
+
+## 安装Jenkins
 
 1. 安装好Jenkins，jdk使用1.8
 
@@ -32,57 +34,87 @@
 
    2. 进入页面http://106.13.20.220:8080/pluginManager/advanced，将底部https://mirrors.tuna.tsinghua.edu.cn/jenkins/
 
+3. 提示插件下载失败，更换镜像，进入页面http://106.13.20.220:8080/pluginManager/advanced，将底部https://mirrors.tuna.tsinghua.edu.cn/jenkins/
 
-3. 
+## 配置Jenkins
 
-4. 提示插件下载失败，更换镜像，进入页面http://106.13.20.220:8080/pluginManager/advanced，将底部https://mirrors.tuna.tsinghua.edu.cn/jenkins/
+1. 插件安装
 
-5. 运行脚本
+   若网络不好的话自动安装失败，可以选择手动上传插件，地址：<http://106.13.20.220:8080/pluginManager/advanced>
 
-   # stop.sh
+   ![1561518733639](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\assets\img\1561518733639.png)
 
-   ```
-   #!/bin/bash
-   echo "Stopping Eureka Application"
-   pid=`ps -ef | grep eurekaserver-0.0.2-SNAPSHOT.jar | grep -v grep | awk '{print $2}'`
-   if [ -n "$pid" ]
-   then
-      kill -9 $pid
-   fi
-   ```
+   插件下载地址：<https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/>，<https://updates.jenkins.io/download/plugins/>
 
-   # replace.sh
+2. 全局配置
 
-   ```
-   #用于将上次构建的结果备份，然后将新的构建结果移动到合适的位置
-   #!/bin/bash
-   #先判断文件是否存在，如果存在，则备份
-   file="/usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar"
-   if [ -f "$file" ]
-   then
-   mv /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar /usr/local/lh/workspace/bak/eurekaserver-0.0.2-SNAPSHOT.jar.`date +%Y%m%d%H%M%S`
-   fi
-   mv /var/lib/jenkins/workspace/tech-site/target/eurekaserver-0.0.2-SNAPSHOT.jar /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar
+   创建项目之前先要对 Jenkins 进行基本的配置，比如 jdk 的目录，git 命令的目录和 maven 的目录等等
+
+   1. 添加凭据
+
+      ![1561519320531](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561519320531.png)
+
+      类型选择SSH Username private key，Private Key填Jenkins服务器上生成的
+
+      ![1561519586851](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561519586851.png)
    
-   ```
+      ![1561519510144](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561519510144.png)
+   
+      配置好git,用ssh的方式拉取代码，并把生成的私钥复制到凭证的Private Key中。Git设置SSH的方式看另一篇文章《git》
 
-   # startup.sh
+## 新建任务
 
-   ```# startup.sh 启动项目
-#!/bin/sh
-echo "授予当前用户权限"
-chmod 777 /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar
-echo "执行....."
-java -jar /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar
-   ```
+1. 配置源代码地址
 
-6. Jenkins中执行shell（缺图片）
+   ![1561531043943](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561531043943.png)
+
+2. 运行脚本
+
+   ![1561531103209](C:\Users\Gene.A.Wang\IdeaProjects\tech-docs\tools\assets\img\1561531103209.png)
+
+   - Jenkins中执行shell
 
    ```
    /usr/local/lh/scripts/stop.sh
    /usr/local/lh/scripts/replace.sh
    BUILD_ID=dontKillMe nohup /usr/local/lh/scripts/startup.sh &
    ```
-
    
+   - stop.sh
+   
+   ```
+#!/bin/bash
+   echo "Stopping Eureka Application"
+pid=`ps -ef | grep eurekaserver-0.0.2-SNAPSHOT.jar | grep -v grep | awk '{print $2}'`
+   if [ -n "$pid" ]
+   then
+      kill -9 $pid
+   fi
+   ```
+   
+   - replace.sh
+   
+   ```
+   #用于将上次构建的结果备份，然后将新的构建结果移动到合适的位置
+   #!/bin/bash
+   #先判断文件是否存在，如果存在，则备份
+file="/usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar"
+   if [ -f "$file" ]
+then
+   mv /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar /usr/local/lh/workspace/bak/eurekaserver-0.0.2-SNAPSHOT.jar.`date +%Y%m%d%H%M%S`
+   fi
+   mv /var/lib/jenkins/workspace/tech-site/target/eurekaserver-0.0.2-SNAPSHOT.jar /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar
+   
+   ```
+   
+   - startup.sh
+
+   ```# startup.sh 启动项目
+#!/bin/sh
+   echo "授予当前用户权限"
+   chmod 777 /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar
+   echo "执行....."
+   java -jar /usr/local/lh/workspace/eurekaserver-0.0.2-SNAPSHOT.jar
+   ```
+
 
