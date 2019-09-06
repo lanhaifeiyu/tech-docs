@@ -1,5 +1,10 @@
 ### 网页收藏
 
+##### 整体：
+
+在浏览器输入 URL 回车之后发生了什么？（超详细版）：
+https://mp.weixin.qq.com/s?__biz=MzIwNTc4NTEwOQ==&mid=2247487186&idx=1&sn=a545e025a6f46ae95c3b13f6e00334c7&chksm=972adfa8a05d56be5475da118f916d370db8c716f15f6d6735f6db2c04a660a362fde078eb14&mpshare=1&scene=1&srcid=0906IrH35TOSniRiAeZzGb5z&sharer_sharetime=1567763775829&sharer_shareid=9b22e43e0b2fa271c30a1874babe3163&key=8b5955d018f14887ad579d261be4aa68cb07c96a6169fbb456941e4905eaf897f66cce70520760209397af9272155c188407c995b098b37e681c1f9f87ce281663c00d0429cdcfd7633590dcf95ddfe0&ascene=1&uin=MjA2MDU2NjU2MA%3D%3D&devicetype=Windows+10&version=62060841&lang=en&pass_ticket=QjXyirl5%2FbU1rYU%2FBZRxtpELGLRxxPFTh%2FHekgN5F0DyW2b6HYF6WbKOiogq3K4W
+
 ##### 数据库：
 
 MySQL 百万级数据量分页查询方法及其优化：https://mp.weixin.qq.com/s/le6ue-8q9T20WWWFw8fvuQ
