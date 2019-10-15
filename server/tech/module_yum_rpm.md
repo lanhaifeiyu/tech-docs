@@ -31,6 +31,7 @@
    yum install man-pages
    yum install vim-enhanced
    yum install screen (安装后才能使用命令：screen -D -RR)
+   yum -y upgrade
    ```
 
    
