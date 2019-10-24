@@ -26,9 +26,13 @@ Mysql存储引擎：
 
 ![mysql show engines](assets/mysql-show-engines.png)
 
-相关SQL语句
+XA:
+MySQL XA 是基于Open Group 的<<Distributed Transaction Processing:The XA Specification>> 标准实现的，支持分布式事务，允许多个数据库实例参与一个全局的事务
 
+Savepoints:
+在MySQL中, 保存点SAVEPOINT属于事务控制处理部分。利用SAVEPOINT可以回滚指定部分事务，从而使事务处理更加灵活和精细
 
+相关SQL语句：
 
 ```mysql
 #创建表时指定引擎方式1
@@ -64,11 +68,11 @@ InnoDB体系架构：
 
 ![](assets/innodb-structure.png)
 
-内存：
+##### 内存：
 
 ![](assets/innodb-memory.jpg)
 
-线程：
+##### 线程：
 
 ![](assets/innodb-threads.jpeg)
 
