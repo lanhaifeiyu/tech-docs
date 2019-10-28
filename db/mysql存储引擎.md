@@ -1,8 +1,8 @@
-体系结构：
+##### 体系结构：
 
  ![img](assets/mysql-structure.png) 
 
-MySQL由以下几部分组成：
+#### MySQL由以下几部分组成：
 
 - 连接池组件（Connection Pool）
 - 管理服务和工作组件（Enterprise Management Services & Utilities）
@@ -13,13 +13,13 @@ MySQL由以下几部分组成：
 - 插件式存储引擎（Pluggable Storage Engines）
 - 物理文件（File System）
 
-Mysql存储引擎：
+##### Mysql存储引擎：
 
 
 
 ![img](assets/mysql-engines.jpg)
 
-查看数据支持的引擎：
+##### 查看数据支持的引擎：
 
 1. 执行命令：SHOW ENGINES
 2. 查看information_schema数据库中的ENGINES表
@@ -49,7 +49,7 @@ ALTER TABLE `demo_engines` ENGINE = INNODB;
 DROP TABLE IF EXISTS `demo_users`,`demo_engines`;
 ```
 
-连接MySQL
+##### 连接MySQL
 
 连接MySQL操作是一个连接进程和MySQL数据库实例进行通信，本质上是进程通信，常用的进程通信方式有
 
@@ -64,7 +64,7 @@ mysql -h127.0.0.1 -uroot -p
 jdbc:mysql://localhost/rtvitrunk?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
 ```
 
-InnoDB体系架构：
+##### InnoDB体系架构：
 
 ![](assets/innodb-structure.png)
 
@@ -76,7 +76,7 @@ InnoDB体系架构：
 
 ![](assets/innodb-threads.jpeg)
 
-后台线程：
+##### 后台线程：
 
 ​	Master Thread：核心后台线程，将缓冲池中的数据异步刷新到磁盘，保证数据一致性，包括：脏页的刷新，合并插入缓冲，							   UNDO页的回收等
 
@@ -88,7 +88,7 @@ InnoDB体系架构：
 
 
 
-内存：
+##### 内存：
 
 缓冲池
 
