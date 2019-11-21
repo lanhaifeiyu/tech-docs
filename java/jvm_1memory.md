@@ -1,3 +1,5 @@
+##### 全面理解Java内存模型(JMM)及volatile关键字： https://blog.csdn.net/javazejian/article/details/72772461 
+
 ### Java内存区域
 
 #### 运行时数据区（Runtime Data Area）

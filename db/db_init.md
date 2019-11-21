@@ -4,10 +4,7 @@ Version 8.0.16
 ## Create DataBase
 
 ```mysql
-CREATE DATABASE
-IF
-	NOT EXISTS tech_share DEFAULT CHARACTER 
-	SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS tech_share DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
 <!--备注：COLLATE(排序):_ci结尾表示大小写不敏感（caseinsensitive）,_cs表示大小写敏感（case sensitive）,_bin表示二进制的比较（binary）-->
