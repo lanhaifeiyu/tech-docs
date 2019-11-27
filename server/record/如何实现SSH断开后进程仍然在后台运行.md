@@ -130,7 +130,7 @@ Ok,系统有了screen命令了。
 
 此时 bash 是 screen 的子进程，而 screen 是 init（PID为1）的子进程。那么当 ssh 断开连接时，HUP 信号自然不会影响到 screen 下面的子进程了。
 
-作者：v1v1wang 
-来源：CSDN 
-原文：https://blog.csdn.net/v1v1wang/article/details/6855552 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+ 在linux命令行中输入：**screen**即可，就进入了**screen**环境。 进入了就要**退出**，**退出**有两种方式，一个是完全**退出**，输入exit就是完全**退出**。 另一个是Detached，CTRL-a+d（先按CTRL-a，然后按d字母），就可以Detached了。 
+
