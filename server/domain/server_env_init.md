@@ -96,5 +96,16 @@
 
     
 
-11. ##### TODO
+11. ##### 安全
 
+    启用防火墙
+
+    ```shell
+    systemctl enable firewalld.service
+    systemctl start firewalld.service
+    systemctl status firewalld.service
+    ```
+
+    
+
+12. TODO

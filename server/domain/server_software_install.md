@@ -69,10 +69,10 @@
 
      ```shell
      #80,443,8080,8081
-     firewall-cmd --zone=public --add-port=80/tcp --permanent
-     firewall-cmd --zone=public --add-port=443/tcp --permanent
-     firewall-cmd --zone=public --add-port=8080/tcp --permanent
-     firewall-cmd --zone=public --add-port=8081/tcp --permanent
+     firewall-cmd --add-port=80/tcp --zone=public --permanent
+     firewall-cmd --add-port=443/tcp --zone=public --permanent
+     firewall-cmd --add-port=8080/tcp --zone=public --permanent
+     firewall-cmd --add-port=8081/tcp --zone=public --permanent
      firewall-cmd --reload
      ```
 
@@ -105,10 +105,10 @@
    - 下载安装
 
      ```shell
-     #下载
+     #下载 官网下载页面：https://dev.mysql.com/downloads/repo/yum/
      wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
      #安装
-     rpm -Uvh mysql80-community-release-el7-3.noarch.rpm
+     rpm -Uvih mysql80-community-release-el7-3.noarch.rpm
      yum repolist all | grep mysql
      screen -D -RR #避免下载时间太长，连接断开
      yum install mysql-community-server
@@ -158,28 +158,28 @@
 
      ```shell
      #oracle官网下载jdk需要登陆，注册账号后下载对应jdk,然后复制URL到linux,用wget下载（这个URL已包含了授权参数，可直接下载）
+     #官网下载页面：https://www.oracle.com/technetwork/java/javase/downloads/index.html
+     
      #wget http://198.1.3.113:8080/pkg/jdk-8u181-linux-x64.rpm (第二种方案是本地起TOMCAT供服务器访问)
-     wget jdk-12.0.1_linux-x64_bin.rpm?AuthParam=1557986409_48c70e13b64a91e0405e7670ff9be657 (参数需更新)
-     rpm -Uvh jdk-12.0.1_linux-x64_bin.rpm
+     #13.0.1 （官网产生实时AuthParam）
+     https://download.oracle.com/otn-pub/java/jdk/13.0.1+9/cec27d702aa74d5a8630c65ae61e4305/jdk-13.0.1_linux-x64_bin.rpm?AuthParam=1574912044_933b10dffa6d32d7931612c7b1e7f586 
+     
+     rpm -Uvih jdk-13.0.1_linux-x64_bin.rpm
+     whereis java # /usr/bin/java
+     ll /usr/bin/java #/usr/bin/java -> /etc/alternatives/java
+     ll /etc/alternatives/java #/etc/alternatives/java -> /usr/java/jdk-13.0.1/bin/java
      java -version
      ```
 
    - 设置环境变量
 
    ```shell
-   #设置JDK环境变量
-   ##rpm安装jdk没有配置环境变量也能运行,是因为安装rpm的时候，/usr/bin下面的一个叫java的软链接，这个链接指向的就是java解压文件。
-   #oracle官网下载jdk需要登陆，注册账号后下载对应jdk,然后复制URL到linux,用wget下载（这个URL已包含了授权参数，可直接下载）
-   #wget http://198.1.3.113:8080/pkg/jdk-8u181-linux-x64.rpm (第二种方案是本地起TOMCAT供服务器访问)
-   wget jdk-12.0.1_linux-x64_bin.rpm?AuthParam=1557986409_48c70e13b64a91e0405e7670ff9be657 (参数需更新)
-   rpm -Uvh jdk-12.0.1_linux-x64_bin.rpm
-   java -version
-   #设置JDK环境变量
-   ##rpm安装jdk没有配置环境变量也能运行,是因为安装rpm的时候，/usr/bin下面的一个叫java的软链接，这个链接指向的就是java解压文件。
-   ##vi /ect/profile:
-   export JAVA_HOME=/usr/java/jdk-12.0.1
+   #rpm安装jdk没有配置环境变量也能运行,是因为安装rpm的时候，/usr/bin下面的一个叫java的软链接，这个链接指向的就是java解压文件。
+   #vi /ect/profile:
+   #airson-yrh add
+   export JAVA_HOME=/usr/java/jdk-13.0.1
    export PATH=$PATH:$JAVA_HOME/bin
-   ##更新文件，echo查看是否生效	
+   #更新文件，echo查看是否生效	
    source /etc/profile
    echo $JAVA_HOME
    echo $PATH
@@ -190,9 +190,10 @@
    - 下载安装
 
      ```shell
-     wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.20/bin/apache-tomcat-9.0.20.tar.gz
-     tar -xvf apache-tomcat-9.0.20.tar.gz
-     mv apache-tomcat-9.0.20 /usr/local/lh/tomcat
+     #官网下载页面：https://tomcat.apache.org/download-90.cgi
+     wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-9/v9.0.29/bin/apache-tomcat-9.0.29.tar.gz
+     tar -zxvf apache-tomcat-9.0.29.tar.gz
+     mv apache-tomcat-9.0.29 /usr/local/lh/tomcat
      #启动tomcat
      cd /usr/local/lh/tomcat
      ./bin/startup.sh
@@ -203,7 +204,7 @@
    - 配置防火墙，开放对应端口
 
      ```shell
-     firewall-cmd --zone=public --add-port=8080/tcp --permanent
+     firewall-cmd --add-port=8080/tcp --zone=public --permanent
      firewall-cmd --reload
      ```
 
@@ -225,15 +226,61 @@
 
    
 
-7. ##### 安装kafka
+7. ##### 安装kafka / ZooKeeper
+
+   ```shell
+   #kafka官网下载页面：https://kafka.apache.org/downloads
+   wget http://mirror.bit.edu.cn/apache/kafka/2.3.1/kafka_2.12-2.3.1.tgz
+   #ZooKeeper官网下载页面：https://www.apache.org/dyn/closer.cgi/zookeeper/
+   wget http://mirror.bit.edu.cn/apache/zookeeper/current/apache-zookeeper-3.5.6-bin.tar.gz
+   
+   tar -zxvf kafka_2.12-2.3.1.tgz
+   tar -zxvf apache-zookeeper-3.5.6-bin.tar.gz
+   mv kafka_2.12-2.3.1 /usr/local/lh/kafka
+   mv apache-zookeeper-3.5.6-bin.tar.gz /usr/local/lh/zookeeper
+   
+   #复制/usr/local/lh/zookeeper/conf/zoo_sample.cfg为zoo.cfg，修改zoo.cfg中的dataDir
+   cp zoo_sample.cfg zoo.cfg
+   mkdir -p /home/lh/log/zookeeper
+   mkdir -p /home/lh/log/kafka
+   mkdir -p /home/lh/log/tomcat
+   mkdir -p /home/lh/log/redis
+   mkdir -p /home/lh/log/nginx
+   
+   #修改/usr/local/lh/kafka/config/server.properties中的log.dir，确认zookeeper.connect
+   log.dirs=/home/lh/kafka
+   listeners=PLAINTEXT://localhost:9092
+   advertised.listeners=PLAINTEXT://localhost:9092
+   
+   mkdir -p /home/lh/log/nohup
+   
+   #启动zookeeper 
+   #nohup /usr/local/lh/zookeeper/bin/zkServer.sh > /home/lh/log/nohup/zookeeper.log 2>&1 &
+   #由于zkServer.sh的start分支中已经使用了 nohup command 2>&1 < /dev/null &，可以直接使用zkServer.sh start
+   /usr/local/lh/zookeeper/bin/zkServer.sh start
+   
+   #启动kafka 
+   nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server.properties > /home/lh/log/nohup/kafka.log 2>&1 &
+   
+   #防火墙
+   firewall-cmd --add-port=9092/tcp --zone=public --permanent
+   firewall-cmd --reload
+   
+   #查看是否9092是否在监听
+   netstat -lptu
+   
+   kafka-topics.sh -list -zookeeper localhost:2181
+   ```
+
+   
 
 8. ##### 安装rabbitmq
 
-9. ##### 安装prometheus-grafana
+9. ##### elasticsearch / solr
 
-10. ##### TODO
+10. ##### docker / docker swarm / kubernetes
 
-11. ##### TODO
+11. ##### spring boot jar
 
 12. ##### TODO
 
@@ -241,11 +288,9 @@
 
 14. ##### TODO
 
-15. ##### TODO
+15. ##### 安装prometheus-grafana
 
 16. ##### TODO
-
-17. ##### TODO
 
 
 
