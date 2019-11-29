@@ -249,8 +249,12 @@
    
    #修改/usr/local/lh/kafka/config/server.properties中的log.dir，确认zookeeper.connect
    log.dirs=/home/lh/kafka
-   listeners=PLAINTEXT://localhost:9092
-   advertised.listeners=PLAINTEXT://localhost:9092
+   ### listeners用内网IP，advertised.listeners用外网IP，不要用localhost或127.0.0.1,也不需要改host !!! ###
+   listeners=PLAINTEXT://172.17.0.9:9092
+   advertised.listeners=PLAINTEXT://172.81.216.81:9092
+   
+   #listeners=PLAINTEXT://localhost:9092 XXX 单实例远程连接模式时是错误配置方式
+   #advertised.listeners=PLAINTEXT://localhost:9092 XXX 单实例远程连接模式时是错误配置方式
    
    mkdir -p /home/lh/log/nohup
    
