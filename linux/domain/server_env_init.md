@@ -34,13 +34,13 @@
    ```shell
    #常用命令：yum list | grep redis
    yum -y install epel-release (epel安装源,提供更多的软件包)
-   yum install net-tools
+   yum install net-tools #Nothing to do
    yum -y install wget
-   yum install -y bash-completion （Tab键自动补全功能）
+   yum install -y bash-completion #Nothing to do（Tab键自动补全功能）
    yum -y install gcc-c++ 
-   yum install htop （htop 是一个 Linux 下的交互式的进程浏览器，可以用来替换Linux下的top命令）
-   yum install man-pages (是linux /unix 环境下命令与函数的帮助文档。)
-   yum install vim-enhanced
+   yum install htop #（htop 是一个 Linux 下的交互式的进程浏览器，可以用来替换Linux下的top命令）
+   yum install man-pages #(是linux /unix 环境下命令与函数的帮助文档。)
+   yum install vim-enhanced #Nothing to do
    yum install screen (安装后才能使用命令：screen -D -RR)
    ```
    
@@ -56,9 +56,9 @@
    useradd lh
    passwd lh
    groupadd lhfeiyu
-   usermod -a -G lhfeiyu lh  (将用户lh加入组lhfeiyu)
-   groups lh (查看用户lh加入的组)
-   cat /etc/passwd (cat 命令用于连接文件并打印到标准输出设备上)
+   usermod -a -G lhfeiyu lh  #(将用户lh加入组lhfeiyu)
+   groups lh #(查看用户lh加入的组)
+   cat /etc/passwd #(cat 命令用于连接文件并打印到标准输出设备上)
    cat /etc/group
    ```
 

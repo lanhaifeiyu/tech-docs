@@ -175,7 +175,7 @@
 
    ```shell
    #rpm安装jdk没有配置环境变量也能运行,是因为安装rpm的时候，/usr/bin下面的一个叫java的软链接，这个链接指向的就是java解压文件。
-   #vi /ect/profile:
+   # vim /etc/profile
    #airson-yrh add
    export JAVA_HOME=/usr/java/jdk-13.0.1
    export PATH=$PATH:$JAVA_HOME/bin
@@ -237,7 +237,7 @@
    tar -zxvf kafka_2.12-2.3.1.tgz
    tar -zxvf apache-zookeeper-3.5.6-bin.tar.gz
    mv kafka_2.12-2.3.1 /usr/local/lh/kafka
-   mv apache-zookeeper-3.5.6-bin.tar.gz /usr/local/lh/zookeeper
+   mv apache-zookeeper-3.5.6-bin /usr/local/lh/zookeeper
    
    #复制/usr/local/lh/zookeeper/conf/zoo_sample.cfg为zoo.cfg，修改zoo.cfg中的dataDir
    cp zoo_sample.cfg zoo.cfg
