@@ -4,7 +4,11 @@
 
 ```shell
 #配置防火墙，开放3306端口
-firewall-cmd --zone=public --add-port=3306/tcp --permanent
+firewall-cmd --add-port=3306/tcp --zone=public --permanent
+#批量开放端口
+firewall-cmd --add-port=2181-2183/tcp --zone=public --permanent
+#关闭端口
+firewall-cmd --remove-port=11111/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --list-all
 

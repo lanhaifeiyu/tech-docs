@@ -241,6 +241,8 @@
    
    #复制/usr/local/lh/zookeeper/conf/zoo_sample.cfg为zoo.cfg，修改zoo.cfg中的dataDir
    cp zoo_sample.cfg zoo.cfg
+   dataDir=/home/lh/zookeeper
+   
    mkdir -p /home/lh/log/zookeeper
    mkdir -p /home/lh/log/kafka
    mkdir -p /home/lh/log/tomcat
@@ -274,6 +276,33 @@
    netstat -lptu
    
    kafka-topics.sh -list -zookeeper localhost:2181
+   
+   # kafka zookeeper 多节点集群配置
+   # https://segmentfault.com/a/1190000018561433
+   # https://segmentfault.com/a/1190000017893271
+   touch myid
+   echo "1" >> myid
+   
+   #批量开放端口
+   firewall-cmd --add-port=2181-2183/tcp --zone=public --permanent
+   firewall-cmd --add-port=2887-2889/tcp --zone=public --permanent
+   firewall-cmd --add-port=3887-3889/tcp --zone=public --permanent
+   firewall-cmd --reload
+   firewall-cmd --list-all
+   
+   ps -ef|grep zookeeper
+   
+   ./zookeeper1/bin/zkServer.sh start && ./zookeeper3/bin/zkServer.sh start && ./zookeeper5/bin/zkServer.sh start
+   ./zookeeper2/bin/zkServer.sh start && ./zookeeper4/bin/zkServer.sh start
+   
+   ./zookeeper1/bin/zkServer.sh status
+   
+   #Error contacting service. It is probably not running
+   #https://blog.csdn.net/cc1949/article/details/78196226
+   
+   #腾讯云内网默认不互通
+   #https://cloud.tencent.com/document/product/213/14639
+   #管理页面-左侧选择安全组，添加安全组，-左侧选择实例，点击进入详情，选择安全组tab，然后绑定
    ```
 
    
