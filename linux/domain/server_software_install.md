@@ -34,11 +34,13 @@
    yum install -y redis
    vim /etc/redis.conf
    #找到下面这一行bind 127.0.0.1注释掉#bind 127.0.0.1
-   requirepass !pssword_ #密码需要修改
+   requirepass @Zse4rfv_ #密码需要修改
    systemctl enable redis.service #开机启动
    systemctl start redis.service
    systemctl status redis.service
    #TODO:端口开放、权限配置
+   firewall-cmd --add-port=6379/tcp --zone=public --permanent
+   firewall-cmd --reload
    ```
 
    
@@ -267,6 +269,7 @@
    
    #启动kafka 
    nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server.properties > /home/lh/log/nohup/kafka.log 2>&1 &
+   nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server.properties 2>&1 < /dev/null &
    
    #防火墙
    firewall-cmd --add-port=9092/tcp --zone=public --permanent
@@ -300,30 +303,41 @@
    #Error contacting service. It is probably not running
    #https://blog.csdn.net/cc1949/article/details/78196226
    
-   #腾讯云内网默认不互通
+   ##### 腾讯云不同账号内网默认不互通
+   
    #https://cloud.tencent.com/document/product/213/14639
    #管理页面-左侧选择安全组，添加安全组，-左侧选择实例，点击进入详情，选择安全组tab，然后绑定
+   #https://cloud.tencent.com/document/product/553/18837 腾讯云不同账号内网默认不互通的解决方案
+   #提示：私有网络网段有冲突，无法建立连接：https://blog.csdn.net/qq_38983728/article/details/103290767
+   #腾讯云不同账号内网默认不互通最终解决方法：
+   https://cloud.tencent.com/document/product/553/18837
+   https://blog.csdn.net/qq_38983728/article/details/103290767
+   
+   #问题：1 partitions have leader brokers without a matching listener, including......
+   #https://kafka.apache.org/documentation/#config
+   #broker.id=[An integer. Start with 0 and increment by 1 for each new broker.]
+   #这次问题是因为broker.id要从0开始，而我设置的是从1开始的，修改后清空/home/lh/kafaka/*重启
    ```
 
-   
+8. TODO
 
-8. ##### 安装rabbitmq
+9. ##### 安装rabbitmq
 
-9. ##### elasticsearch / solr
+10. ##### elasticsearch / solr
 
-10. ##### docker / docker swarm / kubernetes
+11. ##### docker / docker swarm / kubernetes
 
-11. ##### spring boot jar
-
-12. ##### TODO
+12. ##### spring boot jar
 
 13. ##### TODO
 
 14. ##### TODO
 
-15. ##### 安装prometheus-grafana
+15. ##### TODO
 
-16. ##### TODO
+16. ##### 安装prometheus-grafana
+
+17. ##### TODO
 
 
 
