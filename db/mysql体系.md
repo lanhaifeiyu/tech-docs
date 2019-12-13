@@ -1,3 +1,7 @@
+[《高性能MySQL》&《MySQL技术内幕 InnoDB存储引擎》笔记](https://www.jianshu.com/p/bd8675e5c7b2)
+
+
+
 #### mysql知识体系
 
 索引：

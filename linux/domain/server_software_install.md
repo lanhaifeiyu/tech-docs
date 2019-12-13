@@ -28,9 +28,10 @@
 
    
 
-2. ##### 安装 redis
+2. ##### 安装 redis https://redis.io/
 
    ```shell
+   #直接安装一般是3.x的老版本，需要安装5.x的新版本
    yum install -y redis
    vim /etc/redis.conf
    #找到下面这一行bind 127.0.0.1注释掉#bind 127.0.0.1
@@ -41,6 +42,24 @@
    #TODO:端口开放、权限配置
    firewall-cmd --add-port=6379/tcp --zone=public --permanent
    firewall-cmd --reload
+   
+   #安装5.x的新版本
+   https://centos.pkgs.org/7/remi-testing-x86_64/redis-5.0.0~RC5-1.el7.remi.x86_64.rpm.html
+   https://centos.pkgs.org/7/remi-x86_64/redis-5.0.7-1.el7.remi.x86_64.rpm.html
+   http://rpms.remirepo.net/enterprise/7/remi/x86_64//redis-5.0.7-1.el7.remi.x86_64.rpm
+   #实际操作：
+   https://www.wmyeah.com/blog/dev_Linux_redis_01.html
+   
+   yum update
+   yum install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+   yum --enablerepo=remi install redis
+   systemctl enable redis
+   systemctl restart redis.service
+   #redis-cli: info 查看版本
+   redis-cli
+   auth vfr47ujm
+   info
+   
    ```
 
    
