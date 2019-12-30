@@ -33,6 +33,8 @@ git commit -m "commit message"
 
 #切换分支
 git checkout multizone_release
+git checkout large_zone_release
+git checkout tmp_safecheck
 
 #创建分支
 git branch new_branch
@@ -42,8 +44,8 @@ git push --set-upstream origin new_branch
 git push
 
 #创建标签
-git checkout tmp_zone_large_safecheck && git tag R08.00.63-ZLU
-git checkout tmp_safecheck && git tag R04.05.63
+git checkout tmp_zone_large_safecheck && git tag R08.00.70-ZLU
+git checkout tmp_safecheck && git tag R04.05.70
 
 #PUSH标签
 git push origin --tags
