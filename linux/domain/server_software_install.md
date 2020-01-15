@@ -153,7 +153,7 @@
      #创建普通用户，一般用普通用户操作数据库
      CREATE USER 'lh'@'%' IDENTIFIED BY '!lh_new_password';
      #GRANT ALL PRIVILEGES ON *.* TO 'lh'@'%' IDENTIFIED BY '!lh_new_password' WITH GRANT OPTION;
-     GRANT ALL PRIVILEGES ON *.* TO 'lh'@'%'
+     GRANT ALL PRIVILEGES ON *.* TO 'lh'@'%';
      FLUSH PRIVILEGES;
      USE mysql;
      SELECT host,user FROM user;
