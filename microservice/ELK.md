@@ -33,9 +33,106 @@ systemctl enable logstash
 
 #配置filebeat.yml, pipleline.conf
 
+#https://github.com/theangryangel/logstash-output-jdbc
+/usr/share/logstash/bin/logstash-plugin install logstash-output-jdbc
+
 #https://www.elastic.co/guide/en/logstash/current/advanced-pipeline.html
 nohup filebeat -e -c /etc/filebeat/filebeat.yml -d "publish" > /dev/null 2>&1 &
-/usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/first-pipeline.conf --config.test_and_exit &
+#验证配置是否正确logstash
+nohup /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/first-pipeline.conf --config.test_and_exit > /dev/null 2>&1 &
+#正常启动logstash
+nohup /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/first-pipeline.conf --config.reload.automatic  > /dev/null 2>&1 &
 /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/first-pipeline.conf --config.reload.automatic &
+
+#kibaba远程访问
+vim /etc/kibana/kibaba.yml
+server.host: 10.1.0.11
+
+systemctl restart kibana.service
+
+#安装包的下载缓存目录 https://blog.csdn.net/zhezhebie/article/details/74980072
+/var/cache/yum/x86_64/7/elastic-7.x/packages（有问题，只有几M）
+```
+
+```properties
+# /etc/logstash/conf.d/first-pipeline.conf
+input {
+    beats {
+        port => "5044"
+    }
+}
+# The filter part of this file is commented out to indicate that it is
+# optional.
+# filter {
+#
+# }
+#output {
+#    stdout { codec => rubydebug }
+#}
+output {
+    jdbc {
+        driver_jar_path => "/usr/local/lh/elk/mysql-connector-java-8.0.17.jar"
+        driver_class => "com.mysql.cj.jdbc.Driver"
+        connection_string => "jdbc:mysql://localhost/tech_im?user=lh&password=Keep123!"
+        statement => [ "INSERT INTO test_logstash (msg_host, msg_ts, msg) VALUES(?, ?, ?)", "host", "@timestamp", "message" ]
+    }
+}
+
+```
+
+https://www.elastic.co/guide/en/logstash/current/field-extraction.html
+
+https://www.elastic.co/guide/en/logstash/current/logstash-config-for-filebeat-modules.html
+
+http://docs.flycloud.me/docs/ELKStack/logstash/plugins/filter/grok.html
+
+http://grokdebug.herokuapp.com/
+
+##### logstash output:
+
+```json
+{
+      "@version" => "1",
+         "input" => {
+        "type" => "log"
+    },
+       "message" => "2020-01-16 10:25:47 \e[39mDEBUG\e[0;39m: \e[36mRouteDefinition tech-blog-provider applying {_genkey_0=/feign/**} to Path\e[0;39m <<< [elastic-3] at org.springframework.cloud.gateway.route.RouteDefinitionRouteLocator.combinePredicates(RouteDefinitionRouteLocator.java:237)",
+         "agent" => {
+                "type" => "filebeat",
+        "ephemeral_id" => "8290015f-c446-4dfc-b5c1-07c4bfa4026f",
+            "hostname" => "VM_0_11_centos",
+                  "id" => "727bb563-7035-4935-88fc-e6945d9d3514",
+             "version" => "7.5.1"
+    },
+           "ecs" => {
+        "version" => "1.1.0"
+    },
+          "tags" => [
+        [0] "beats_input_codec_plain_applied"
+    ],
+          "host" => {
+                 "name" => "VM_0_11_centos",
+                   "id" => "c28d40cbc8e3adcb4e32d9779a77b39e",
+         "architecture" => "x86_64",
+                   "os" => {
+              "kernel" => "3.10.0-862.el7.x86_64",
+                "name" => "CentOS Linux",
+             "version" => "7 (Core)",
+              "family" => "redhat",
+            "platform" => "centos",
+            "codename" => "Core"
+        },
+        "containerized" => false,
+             "hostname" => "VM_0_11_centos"
+    },
+    "@timestamp" => 2020-01-16T02:25:56.875Z,
+           "log" => {
+        "offset" => 3964617,
+          "file" => {
+            "path" => "/usr/local/lh/runtime/logs-all/tech-cloud/gateway/tech-gateway-server.log"
+        }
+    }
+}
+
 ```
 

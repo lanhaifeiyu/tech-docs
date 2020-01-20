@@ -14,3 +14,36 @@
    ```
 
    
+
+##### springboot多个profile
+
+1.在application.yml文件中配置：
+
+```yml
+spring:
+  profiles: 
+    active: prod
+server: 
+  port: 8080  
+
+---
+spring: 
+  profiles: dev  
+  
+server: 
+  port: 8080  
+  
+spring:
+    profiles:
+        active: dev  
+```
+
+2.建立对应的配置文件，格式为：application-{profle}.yml, 如application-dev.yml, application-prod.yml
+
+在application.yml中指定profile:
+
+```yml
+spring:
+    profiles:
+        active: dev
+```

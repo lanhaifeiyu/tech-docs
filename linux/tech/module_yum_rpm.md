@@ -38,6 +38,15 @@
 
 4. ##### TODO
 
+5. ```shell
+   rpm -ivh your-package.rpm
+   
+   ```
+
+
+   ```
+#安装包的下载缓存目录 https://blog.csdn.net/zhezhebie/article/details/74980072
+   /var/cache/yum/x86_64/7/elastic-7.x/packages（有问题，只有几M）
 
 
 
@@ -47,3 +56,5 @@
 
 
 
+
+   ```

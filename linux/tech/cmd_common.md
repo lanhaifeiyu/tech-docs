@@ -23,3 +23,9 @@ ctrl-q   恢复控制台输出
 ctrl-l    清屏
 ```
 
+```shell
+#查看服务的错误信息
+journalctl -xe
+journalctl -xe | grep logstash
+```
+
