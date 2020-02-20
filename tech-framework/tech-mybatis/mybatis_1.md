@@ -1,5 +1,7 @@
 [mybatis官网](https://mybatis.org/mybatis-3/zh/index.html)
 
+[面试官问你MyBatis SQL是如何执行的？把这篇文章甩给他](https://mp.weixin.qq.com/s/AyItaTuLGYHvY9w9EJ-rOg)
+
 ##### 预编译到底做了什么逻辑,**为什么使用预编译语句**？ https://blog.csdn.net/xqhys/article/details/66478563    
 
 #####  **1、提高效率**  
