@@ -1,12 +1,20 @@
 > ##### 其他资料
 
-我的知乎收藏里面还有大量资料：https://www.zhihu.com/collection/308578889
+1. 我的知乎收藏里面还有大量资料：https://www.zhihu.com/collection/308578889
 
-https://snailclimb.gitee.io/javaguide/#/?id=java
+2. https://snailclimb.gitee.io/javaguide/#/?id=java
+
+3. 掘金收藏
+
+> ##### 计划
+
+##### 顺序：spring -> redis -> Java -> 数据结构 -> 微服务理论和实践
 
 
 
 > ##### 重点模块
+
+##### 综合解决方案: [参考architecture.md](architecture.md)
 
 Java：集合源码原理、多线程、IO
 
@@ -25,14 +33,6 @@ MySQL：索引、锁、事务、性能优化
 网络：HTTP、TCP、、
 
 spring、redis、
-
-
-
-
-
-> ##### 计划
-
-##### 顺序：spring -> redis -> Java -> 数据结构 -> 微服务理论和实践
 
 
 

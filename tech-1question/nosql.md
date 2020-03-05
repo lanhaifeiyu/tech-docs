@@ -1,5 +1,11 @@
 > ##### redis
 
+
+
+[Redis面试题（2020最新版）](https://mp.weixin.qq.com/s/ADJ_ig7GwserpE1_xqNknQ)
+
+
+
 了解 redis 源码么 
 
 了解 redis 集群么 

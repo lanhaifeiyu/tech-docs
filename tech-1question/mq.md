@@ -1,5 +1,9 @@
 > ##### MQ
 
+[消息中间件MQ与RabbitMQ面试题（2020最新版）](https://mp.weixin.qq.com/s/Lz4NEChB_Twlva5V8BKyvg)
+
+
+
 消息中间件有哪些？他们之间的优劣势？ 
 
 - 为什么选择rabbitMQ， 社区活跃，高并发
