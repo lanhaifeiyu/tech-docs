@@ -49,12 +49,23 @@
    /var/cache/yum/x86_64/7/elastic-7.x/packages（有问题，只有几M）
 
 
-
-
-
-
-
-
-
-
    ```
+
+##### [查看RPM包依赖](https://blog.csdn.net/nklinsirui/article/details/80159116)
+
+```shell
+查看.rpm 包依赖：
+rpm -qpR [package]
+安装.rpm 包时，如果缺少依赖，报错信息中会打印出缺少的依赖：
+rpm -ivh [package]
+通过查询 https://pkgs.org/ 来查询包的依赖关系。
+通过yum install --downloadonly --downloaddir=[download_dir] [package] 来只下载包不安装包
+运行yum list [package] --showduplicates 来查看包的多个版本
+
+rpm -qa | grep docker
+*运行rpm -ql [package]，比如：
+rpm -ql jenkins
+运行yum list installed | grep [package] ， 比如：
+yum list installed | grep docker
+```
+

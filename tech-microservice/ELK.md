@@ -80,6 +80,24 @@ output {
 
 ```
 
+logstash-output-jdbc插件的安装 https://github.com/theangryangel/logstash-output-jdbc
+
+```shell
+#官网安装说明：
+Installation
+Run bin/logstash-plugin install logstash-output-jdbc in your logstash installation directory
+Now either:
+Use driver_jar_path in your configuraton to specify a path to your jar file
+Or:
+Create the directory vendor/jar/jdbc in your logstash installation (mkdir -p vendor/jar/jdbc/)
+Add JDBC jar files to vendor/jar/jdbc in your logstash installation
+And then configure (examples can be found in the examples directory)
+
+#实际安装：
+/usr/share/logstash/bin/logstash-plugin install logstash-output-jdbc
+
+```
+
 https://www.elastic.co/guide/en/logstash/current/field-extraction.html
 
 https://www.elastic.co/guide/en/logstash/current/logstash-config-for-filebeat-modules.html
@@ -136,3 +154,10 @@ http://grokdebug.herokuapp.com/
 
 ```
 
+filebeat 开发语言：GO
+
+logstash 开发语言：JRuby
+
+elasticsearch 开发语言：Java
+
+kibana 开发语言：nodejs
