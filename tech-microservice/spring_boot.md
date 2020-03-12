@@ -64,3 +64,5 @@ spring:
 [yaml语法及规范](https://blog.csdn.net/IT_faquir/article/details/79842885)
 
 ##### [Spring Boot配置过滤器的两种方式](https://www.javazhiyin.com/45056.html)
+
+##### [Spring Boot 统一设置Json数据返回风格（Java驼峰命名转下划线）](https://blog.csdn.net/limenghua9112/article/details/84976621)

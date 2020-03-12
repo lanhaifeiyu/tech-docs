@@ -46,6 +46,8 @@ git push
 #创建标签
 git checkout tmp_zone_large_safecheck && git tag R08.00.70-ZLU
 git checkout tmp_safecheck && git tag R04.05.70
+#删除标签
+git tag -d xxx
 
 #PUSH标签
 git push origin --tags

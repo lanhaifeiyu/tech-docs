@@ -70,13 +70,67 @@ private Animal animal = null;
 
 public Buss nessPerson(@Autowired @Qualifier("dog”) Animal animal) { 
 
+@DependsOn
 
+##### 生命周期
 
+资源定位（@ComponentScan等） -> Bean定义（将Bean的定义保存到BeanDefinition的实例中）
 
+发布Bean定义（IoC容器装载Bean定义） -> 实例化（创建Bean的实例对象）
 
-TODO   Spring5高级编程
+-> 依赖注入（@Autowired等）
 
+@ComponentScan有lazyInit属性，若为false，则在发布Bean定义后，并不会马上进行实例化和注入
 
+ApplicationContextAware接口，@PostConstruct, @PreDestroy, BeanPostProcessor接口（后置Bean初始化器）
+
+@ConfigurationProperties("jdbc")，放配置文件中的jdbc前缀的属性全部映射到对象中
+
+@PropertySource(value={”classpath:jdbc.properties”}, ignoreResourceNotFound=true) ，加载自定义配置文件
+
+##### 条件装配Bean：
+
+@Bean (name = ” dataSource ” , destroyMethod = ” close ” ) 
+
+@Conditional(DatabaseConditional.class)
+
+@Conditional 注解，配置了类 DatabaseConditional类，那么这个类就必须实现Conditional接口和实现matches方法
+
+##### Bean的作用域：
+
+singleton 单例 （使用范围：所有Spring应用）
+
+prototype 每当从IoC中取出时新建（使用范围：所有Spring应用）
+
+session HTTP会话（使用范围：Spring Web 应用）
+
+application Web工作生命周期（使用范围：Spring Web 应用）
+
+request 单次请求（使用范围：Spring Web 应用）
+
+globalSession 全局Session，基本不用（使用范围：Spring Web 应用）
+
+@Profile 环境切换
+
+##### 自动装配Bean （5种）
+
+byName：通过属性的名字匹配Bean
+
+byType：通过属性的类型匹配Bean
+
+构造函数：按构造函数的参数类型匹配Bean（匹配最大数量的参数的构造函数）
+
+默认模式：Spring自动在构造函数模式和byType之间选择，有默认无参构造函数用byType，否则用构造函数
+
+无 （默认设置）即不会在未明确申明需要依赖的情况下，不进行自动注入（未标记注解或set方法等）
+
+@Lazy注解，在类级别使用时，声明在第一次被访问时才会实例化，
+
+使用注解（@Autowired）时默认是使用byType模式，如果有相同的类型，则需要用@Qulifier来按名字匹配
+
+##### 生命周期
+
+![image-20200313072755775](assets/image-20200313072755775.png)
 
 参考：
 

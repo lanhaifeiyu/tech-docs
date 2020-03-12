@@ -161,3 +161,29 @@ logstash 开发语言：JRuby
 elasticsearch 开发语言：Java
 
 kibana 开发语言：nodejs
+
+logstash监控 https://www.elastic.co/guide/en/logstash/current/monitoring-logstash.html
+
+```shell
+curl -XGET '127.0.0.1:9600/_node/<types>' #pipelines, os, jvm
+
+curl -XGET '127.0.0.1:9600/_node/pipelines?pretty'
+curl -XGET '127.0.0.1:9600/_node/os?pretty'
+curl -XGET '127.0.0.1:9600/_node/jvm?pretty'
+
+curl -XGET '127.0.0.1:9600/_node/plugins?pretty'
+
+curl -XGET '127.0.0.1:9600/_node/stats/<types>' #jvm, process, events, pipelines, reloads, os
+curl -XGET '127.0.0.1:9600/_node/stats/jvm?pretty'
+curl -XGET '127.0.0.1:9600/_node/stats/process?pretty'
+curl -XGET '127.0.0.1:9600/_node/stats/events?pretty'
+curl -XGET '127.0.0.1:9600/_node/stats/pipelines?pretty'
+curl -XGET '127.0.0.1:9600/_node/stats/reloads?pretty'
+curl -XGET '127.0.0.1:9600/_node/stats/os?pretty'
+
+curl -XGET '127.0.0.1:9600/_node/hot_threads?pretty'
+
+#重要：
+curl -XGET '127.0.0.1:9600/_node/stats/events?pretty'
+```
+
