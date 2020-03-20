@@ -1,3 +1,13 @@
+https://www.elastic.co/guide/index.html
+
+https://www.elastic.co/guide/en/logstash/current/index.html
+
+https://www.elastic.co/guide/en/beats/filebeat/current/index.html
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+
+
+
 systemctl start elasticsearch.service
 
 ```
@@ -96,6 +106,30 @@ And then configure (examples can be found in the examples directory)
 #实际安装：
 /usr/share/logstash/bin/logstash-plugin install logstash-output-jdbc
 
+#离线安装
+https://rubygems.org/gems/logstash-output-jdbc
+https://blog.csdn.net/fgf00/article/details/90383884
+
+# 插件都在https://rubygems.org/, 搜索插件，然后下载gem文件
+mkdir logstash
+mv logstash-output-exec-3.1.4.gem logstash/
+zip -r logstash-output-exec.zip logstash
+./bin/logstash-plugin install file:///tmp/logstash-output-exec.zip
+bin/logstash-plugin list
+
+mkdir logstash
+mv logstash-output-jdbc-5.4.0.gem logstash/
+zip -r logstash-output-jdbc.zip logstash
+/usr/share/logstash/bin/logstash-plugin install file:///usr/local/elk/logstash-output-jdbc.zip
+/usr/share/logstash/bin/logstash-plugin list
+
+/usr/share/logstash/bin/logstash-plugin install file:///usr/local/elk/logstash-output-jdbc.zip
+chown -R logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-output-jdbc-5.4.0
+chgrp -R logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-output-jdbc-5.4.0
+chmod -R 755 /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-output-jdbc-5.4.0
+chown logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/specifications/logstash-output-jdbc-5.4.0.gemspec
+chgrp logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/specifications/logstash-output-jdbc-5.4.0.gemspec
+chmod 755 logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/specifications/logstash-output-jdbc-5.4.0.gemspec
 ```
 
 https://www.elastic.co/guide/en/logstash/current/field-extraction.html
@@ -185,5 +219,22 @@ curl -XGET '127.0.0.1:9600/_node/hot_threads?pretty'
 
 #重要：
 curl -XGET '127.0.0.1:9600/_node/stats/events?pretty'
+curl -XGET '127.0.0.1:9600/_node/stats/process?pretty'
+curl -XGET '127.0.0.1:9600/_node/stats/pipelines?pretty'
+
+curl -XGET '127.0.0.1:5066'
 ```
 
+##### [数据收集之Filebeat](https://blog.csdn.net/wangpei1949/article/details/81839830) At-Least-Once机制
+
+filebeat的log默认在/var/log/下面，以message-为前缀，如：messages-20200309，这个log里面可以看到filebeat的metric信息，基本的运行状态。
+
+filebeat没有创建对应的账号，服务/etc/systemd/system/multi-user.target.wants/filebeat.service配置里面也没有指定用户，是由root账号在运行，直接打印到/var/log/message系统日志中了。
+
+`journalctl -u kibana.service`
+
+##### kibana:
+
+http://47.93.118.250:5601/
+
+journalctl -xe

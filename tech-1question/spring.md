@@ -1,5 +1,9 @@
 > #### Spring
 
+##### 2020年3月47个经典Spring面试题详解(附带答案)https://juejin.im/post/5e5cfa4be51d4526f23a2660
+
+------
+
 ##### AOP、IOC：
 
 spring IOC 和 AOP，以及各有什么优点 
@@ -44,17 +48,33 @@ BeanFactory 和 和 ApplicationContext 有什么区别？
 
 Spring Bean 的作用域之间有什么区别？
 
-什么是 Spring inner beans ？
+什么是 Spring inner beans ？ 
+
+​		https://cloud.tencent.com/developer/article/1532984 用spring ioc 实现内部类
 
 Spring 框架中的单例 Beans 是线程安全的么？
 
+​		https://juejin.im/post/5a0045ef5188254de169968e 无状态则安全，有状态用TreadLocal等方式解决
+
 请举例说明如何在 Spring 中注入一个 Java Collection ？
 
+​		https://blog.csdn.net/aichuanwendang/article/details/84942185
+​		https://www.cnblogs.com/duanxz/p/4516716.html
+
+​		对于@Autowired声明的数组、集合类型，spring是把容器中所有类型与集合（数组）中元素类型相同的bean构造出一个对应		集合，注入到目标bean中。xml中有<list> <set> <map> <props> 等标签，支持注入集合，也可以用@Bean注解
+
 如何向 Spring Bean 中注入一个 Java.util.Properties ？
+
+​		https://cloud.tencent.com/developer/article/1532979 
+
+​		<props>标签  或者  从properties文件中创建出一个propertiesbean，然后利用setter方法注入bean的引用
 
 请解释自动装配模式的区别？
 
 BeanFactory 和 FactoryBean
+
+​		https://juejin.im/post/5da590c35188252d3a44a8ea 
+​		BeanFactory顶级接口，FactoryBean能生产或修饰对象生成的工厂Bean，FactoryBean在Spring中最为典型的一个应用就是		用来**创建AOP的代理对象**
 
 构造方法注入和设值注入有什么区别？
 
@@ -62,9 +82,12 @@ BeanFactory 和 ApplicationContext？
 
 Spring Bean 的生命周期，如何被管理的？Spring Bean 的加载过程是怎样的？
 
+​		https://juejin.im/post/5d6bacd86fb9a06af92bbb05
+
 Spring 循环注入的原理？
 
-BeanFactory 和 FactoryBean
+​		https://juejin.im/post/5d0d8f64f265da1b7b3193ac	https://zhuanlan.zhihu.com/p/60837185
+​		构造函数和prototype的set方法注入有循环依赖的问题，singletome的set方法没有此问题
 
 FactoryBean的理解
 
@@ -74,19 +97,15 @@ spring中的自动装配方式
 
 基于注解的形式，是怎么实现的， 你知道其原理吗，说一下
 
+​		https://juejin.im/post/5d19ce21f265da1bb96ff538
+
 依赖冲突，有碰到过吗，你是怎么解决的~
-
-怎么防止依赖注入
-
-如何自动包装对象
-
-怎么让mapper 和xml对应
 
 ------
 
 ##### 架构设计：
 
-什么是 Spring 框架？Spring 框架有哪些主要模块？
+什么是 Spring 框架？Spring 框架有哪些主要模块？https://zhuanlan.zhihu.com/p/58849721
 
 Spring boot、SpringClound 的基本架构设计 
 
@@ -96,9 +115,16 @@ Dubbo 和 SpringClound 的区别在哪里，优劣势
 
 Spring 框架中有哪些不同类型的事件？
 
+​		https://www.jianshu.com/p/06e5b40400af
+​		https://cloud.tencent.com/developer/article/1532994
+
 Spring 框架中都用到了哪些设计模式？
 
+​		https://juejin.im/post/5ce69379e51d455d877e0ca0
+
 spring的启动过程
+
+​		https://juejin.im/post/5ae9c63f6fb9a07aa2132c18
 
 ------
 
@@ -120,9 +146,13 @@ Spring 有几种配置方式？
 
 如何用基于 Java 配置的方式配置 Spring ？
 
+​		@ComponentScan, @Configuration, @Bean
+
 怎样用注解的方式配置 Spring ？
 
 如何开启基于注解的自动装配
+
+​		< context:annotation-config />
 
 请举例解释@Required 注解？
 
@@ -131,6 +161,9 @@ Spring 有几种配置方式？
 请举例说明@Qualifier 注解？
 
 FileSystemResource 和 和 ClassPathResource 有何区别？
+
+​		https://www.cnblogs.com/williamjie/p/11463222.html		
+​		ClassPathResource在环境变量中读取配置文件，FileSystemResource在配置文件中读取配置文件
 
 ------
 

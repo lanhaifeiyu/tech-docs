@@ -21,3 +21,7 @@ let date = new Date().toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai', hour12
 console.log(date);
 ```
 
+
+
+##### [JavaScript 浮点数运算的精度问题](https://www.html.cn/archives/7340)
+
