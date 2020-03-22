@@ -156,6 +156,12 @@ Spring 有几种配置方式？
 
 请举例解释@Required 注解？
 
+```
+Marks a method (typically a JavaBean setter method) as being 'required': that is,
+* the setter method must be configured to be dependency-injected with a value.
+@deprecated as of 5.1, in favor of using constructor injection for required settings
+```
+
 请举例解释@Autowired 注解？
 
 请举例说明@Qualifier 注解？
@@ -219,6 +225,15 @@ SpringMvc 中函数的返回值是什么？
 
 SpringMVC 怎么样设定重定向和转发的？
 
+```java
+//请求重定向以redirect:开头，请求转发以forward:开头；
+//return "forward:/users/uc";
+//return "redirect:/#/home";
+	ModelAndView mv = new ModelAndView("forward:/users/uc");*//默认为forward模式*   *//        
+    ModelAndView mv = new 		ModelAndView("redirect:/#/home");//redirect模式*              
+	return mv;  
+```
+
 SpringMvc 用什么对象从后台向前台传递数据的？
 
 SpringMvc 中有个类把视图和数据都合并的一起的,叫什么？
@@ -230,6 +245,9 @@ SpringMvc 怎么和 AJAX 相互调用的？
 讲下 SpringMvc 的执行流程
 
 SpringMvc 里面拦截器是怎么写的？
+
+​	extends org.springframework.web.servlet.handler.HandlerInterceptorAdapter 
+​	preHandle postHandle afterCompletion afterConcurrentHandlingStarted
 
 当一个方法向 AJAX 返回特殊对象,譬如 Object,List 等,需要做什么处理？
 
