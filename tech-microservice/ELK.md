@@ -130,6 +130,19 @@ chmod -R 755 /usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-output-
 chown logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/specifications/logstash-output-jdbc-5.4.0.gemspec
 chgrp logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/specifications/logstash-output-jdbc-5.4.0.gemspec
 chmod 755 logstash /usr/share/logstash/vendor/bundle/jruby/2.5.0/specifications/logstash-output-jdbc-5.4.0.gemspec
+
+#安装websocket output插件
+/usr/share/logstash/bin/logstash-plugin install logstash-output-websocket
+/usr/share/logstash/bin/logstash-plugin install /usr/local/elk/logstash-output-websocket-3.0.5.gem
+#conf.d/first-pipeline.conf:
+websocket {
+	id => "sta_out_ws"
+	port => "6001"
+}
+systemctl restart logstash.service
+
+#http plugin
+/usr/share/logstash/bin/logstash-plugin install file:///usr/local/elk/logstash-output-http-5.2.4.zip
 ```
 
 https://www.elastic.co/guide/en/logstash/current/field-extraction.html
@@ -238,3 +251,15 @@ filebeat没有创建对应的账号，服务/etc/systemd/system/multi-user.targe
 http://47.93.118.250:5601/
 
 journalctl -xe
+
+离线安装logstash插件：
+
+https://blog.csdn.net/evandeng2009/article/details/78036054
+
+https://blog.csdn.net/fgf00/article/details/90383884
+
+http://codepub.cn/2017/09/29/logstash-offline-install-plugin/
+
+https://github.com/logstash-plugins?q=&type=&language=
+
+https://yangxx.net/?p=3189
