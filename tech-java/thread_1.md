@@ -152,7 +152,7 @@ wait/notify被不同的线程调用，但共享相同的锁和条件等待队列
 
 #### 线程的中断
 
-停止一个线程的主要机制是中断，中断并不是强迫终止一个线程，它是一种协作机制，是给线程传一个取消信号，由线程来决定如何以及何时退出。stop方法已弃用，interrupt方法，interrupted中断标志们，isInterrupted，中断标志位是否为true.
+停止一个线程的主要机制是中断，中断并不是强迫终止一个线程，它是一种协作机制，是给线程传一个取消信号，由线程来决定如何以及何时退出。stop方法已弃用，interrupt方法，interrupted中断标志位，isInterrupted，中断标志位是否为true.
 
 
 
@@ -281,6 +281,12 @@ public interface Condition {
 ```
 
 显示条件与显示锁配合，wait/notify与synchronized配合。
+
+需要深入分析ReentrantLock相关类的源码
+
+
+
+### 并发容器
 
 
 
