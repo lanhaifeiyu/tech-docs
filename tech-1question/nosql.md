@@ -1,8 +1,43 @@
 > ##### redis
 
+https://redis.io/commands
 
+[Redis面试题（2020最新版）](https://mp.weixin.qq.com/s/ADJ_ig7GwserpE1_xqNknQ)：https://mp.weixin.qq.com/s/ADJ_ig7GwserpE1_xqNknQ
 
-[Redis面试题（2020最新版）](https://mp.weixin.qq.com/s/ADJ_ig7GwserpE1_xqNknQ)
+##### [2020] Redis 最新面试题：https://zhuanlan.zhihu.com/p/93942256
+
+##### 面试中关于Redis的问题看这篇就够了：https://juejin.im/post/5ad6e4066fb9a028d82c4b66
+
+##### 天下无难试之Redis面试题刁难大全：https://zhuanlan.zhihu.com/p/32540678
+
+##### 最新2020一线大厂Redis使用21条军规及详细解读：https://zhuanlan.zhihu.com/p/141732857
+
+##### 谈谈Redis的SETNX（实现分布式锁）：https://www.jianshu.com/p/8b3130229515
+
+##### 使用 Redis的SETNX命令实现分布式锁：https://www.jianshu.com/p/c970cc71070b
+
+```shell
+Note: Since the SET command options can replace SETNX, SETEX, PSETEX, it is possible that in future versions of Redis these three commands will be deprecated and finally removed.
+SET命令就包含了SETNX, SETEX, PSETEX的功能： SET EX PX NX XX KEEPTTL
+加锁最完美的方案是： SET key value EX 10 NX
+SetArgs args = new SetArgs();
+args.ex(10).nx();
+redisCommands.set("setnxlock", "date_ts", args);
+
+SETNX lock.foo <current Unix time + lock timeout + 1>
+如果 SETNX 返回1，说明该进程获得锁，SETNX将键 lock.foo 的值设置为锁的超时时间（当前时间 + 锁的有效时间）。
+如果 SETNX 返回0，说明其他进程已经获得了锁，进程不能进入临界区。进程可以在一个循环中不断地尝试 SETNX 操作，以获得锁。
+```
+
+##### 理解Redis的内存回收机制: https://www.hoohack.me/2019/06/24/redis-expire-strategy
+
+##### [Redis线程模型](https://www.cnblogs.com/barrywxx/p/8570821.html)：https://www.cnblogs.com/barrywxx/p/8570821.html
+
+##### 五分钟看懂一致性哈希算法:https://juejin.im/post/5ae1476ef265da0b8d419ef2
+
+##### 面试必备：什么是一致性Hash算法？:https://zhuanlan.zhihu.com/p/34985026
+
+##### 这5个常问的Redis面试题你答得出来吗？（详细剖析）:https://juejin.im/post/5ea7c7615188256d48707b28
 
 
 

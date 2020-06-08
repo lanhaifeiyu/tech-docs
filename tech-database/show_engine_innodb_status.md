@@ -176,3 +176,8 @@ END OF INNODB MONITOR OUTPUT
 
 ```
 
+结果分析：
+
+https://keithlan.github.io/2017/06/05/innodb_locks_show_engine/
+
+https://cloud.tencent.com/developer/article/1424670

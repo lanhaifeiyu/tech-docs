@@ -201,6 +201,19 @@ http://grokdebug.herokuapp.com/
 
 ```
 
+##### logstash安装离线插件：https://anbc.gitbooks.io/elk-handbook/content/shengcheng-logstash-cha-jian-li-xian-bao.html
+
+```shell
+#先在线安装插件
+/usr/share/logstash/bin/logstash-plugin install logstash-output-websocket
+#生成离线安装包，是一个zip文件
+/usr/share/logstash/bin/logstash-plugin prepare-offline-pack logstash-output-websocket
+#在需要离线安装插件的主机上安装此离线包
+/usr/share/logstash/bin/logstash-plugin install file:///usr/local/elk/logstash-output-http-5.2.4.zip
+```
+
+
+
 filebeat 开发语言：GO
 
 logstash 开发语言：JRuby

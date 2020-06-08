@@ -25,3 +25,12 @@ console.log(date);
 
 ##### [JavaScript 浮点数运算的精度问题](https://www.html.cn/archives/7340)
 
+
+
+#### Js如何调用本地应用程序：
+
+##### Js如何调用本地应用程序：https://blog.csdn.net/jiaowo_ccc/article/details/78792657
+
+##### js调用本地exe程序的两种方式：https://blog.csdn.net/longzhoufeng/article/details/78778708
+
+运行window，输入regedit打开注册表。 在HKEY_CLASSES_ROOT下面建一个自己起的名字的表。：Computer\HKEY_CLASSES_ROOT\QQGameProtocol

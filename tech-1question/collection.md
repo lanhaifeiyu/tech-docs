@@ -1,5 +1,7 @@
 > #### 数据结构与集合
 
+##### 这几道Java集合框架面试题在面试中几乎必问：https://juejin.im/post/5b7e955be51d4538de11550c
+
 HashMap 实现原理，ConcurrentHashMap 实现原理 
 
 红黑树，为什么允许局部不平衡 
@@ -18,9 +20,7 @@ concurrenthashmap 为什么线程安全，采用了什么措施应对高并发
 
 栈和队列 
 
-java 的基础知识点，主要围绕在集合类和多线程等：ArrayList、
-
-LinkedList、HashSet、HashpMap 的数据结果，以及如何扩容、以及 ConcurrentHashMap 相关的多线程安全等。 
+java 的基础知识点，主要围绕在集合类和多线程等：ArrayList、LinkedList、HashSet、HashpMap 的数据结果，以及如何扩容、以及 ConcurrentHashMap 相关的多线程安全等。 
 
 排序算法的复杂度，快速排序非递归实现。海量数据过滤，黑名单过滤一个 url。 
 
@@ -88,13 +88,9 @@ object 类你知道的方法. hashcode 和 equals
 
 你重写过 hashcode 和 equals 么，要注意什么 
 
-假设现在一个学生类，有学号和姓名，我现在 hashcode 方法重写的时 
+假设现在一个学生类，有学号和姓名，我现在 hashcode 方法重写的时候，只将学号参与计算，会出现什么情况？ 
 
-候，只将学号参与计算，会出现什么情况？ 
-
-往 set 里面 put 一个学生对象，然后将这个学生对象的学号改了，再 put 
-
-进去，可以放进 set 么？并讲出为什么 
+往 set 里面 put 一个学生对象，然后将这个学生对象的学号改了，再 put 进去，可以放进 set 么？并讲出为什么 
 
 讲一下稳定的排序算法和不稳定的排序算法 
 
