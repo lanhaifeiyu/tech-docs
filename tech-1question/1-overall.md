@@ -6,6 +6,10 @@
 
 3. 掘金收藏
 
+4. ##### Github上那些能带领我们从Java小白进阶架构师的优秀项目：https://juejin.im/post/5d0508cce51d4510bf1d666f
+
+5. ##### 我的github关注的项目：https://github.com/airson-yu?tab=stars
+
 > ##### 计划
 
 ##### 顺序：spring -> redis -> Java -> 数据结构 -> 微服务理论和实践
