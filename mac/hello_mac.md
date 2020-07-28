@@ -6,7 +6,7 @@ trojan-qt5, shadowsocksX, chrome及书签插件,oneNote, Typora, notepad++, ditt
 
 ##### 开发：
 
-navicat, xshell, xftp, wireshark, postman, mysql, git, TortoiseGit, maven, jdk, erlang, python, nodeJs, tomcat, jmeter, 
+navicat, xshell, xftp, wireshark, postman, mysql, git, TortoiseGit, maven, jdk, erlang, scala, python, nodeJs, tomcat, jmeter, 
 
 kafka, rabbitmq, zookeeper, nginx, redis,
 
@@ -64,5 +64,28 @@ https://www.zhihu.com/question/19947980
 
 
 
+-----------------------------------------------------------------------------------------------------------
 
+解压：
+https://www.zhihu.com/question/20383279/answer/595600588
+https://zhuanlan.zhihu.com/p/41127267
+
+
+
+VSFTPD的使用详解：
+https://security.appspot.com/vsftpd.html#download
+https://zhuanlan.zhihu.com/p/73367809
+
+jrebel:
+https://github.com/ilanyu/ReverseProxy/releases/tag/v1.4
+https://lioswong.github.io/2019/08/23/Jrebel%E4%BD%BF%E7%94%A8/
+http://blog.lanyus.com/archives/317.html
+
+
+idea:
+https://zhile.io/2018/08/17/jetbrains-license-server-crack.html
+
+
+
+-----------------------------------------------------------------------------------------------------------
 
