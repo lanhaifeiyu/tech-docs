@@ -48,3 +48,16 @@ helper = cache --timeout 5
 #或者直接删除helper
 ```
 
+
+
+#### 自建GIT服务器
+
+https://www.cnblogs.com/guitu18/p/12817272.html
+
+```shell
+# https://gitea.io/zh-cn/
+# 创建工作目录 
+mkdir -p /usr/local/gitea && cd /usr/local/gitea 
+wget -O gitea https://dl.gitea.io/gitea/1.12.3/gitea-1.12.3-linux-amd64 && chmod +x gitea
+```
+
