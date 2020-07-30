@@ -88,6 +88,8 @@ https://zhile.io/custom-license.html
 
 
 
+##### 编程相关推荐，很不错：https://www.zhihu.com/question/27617980/answer/919642075
+
 ##### 打造Mac下最强终端，iTerm2 + Oh My Zsh + powerlevel9k: https://feeeei.com/archives/27/
 
 ##### 舒适美观的mac终端, iTerm2+zsh+powerlevel9k+vim+virtualenv:https://juejin.im/post/5d7ba7f6e51d453c135c5b79
@@ -161,3 +163,15 @@ airson_yu@163.com
 
 
 ##### 2020年金钱可以买到的6种最佳Mac键盘（经过手工比较和测试）: https://wpjian.com/tips/2019121828742.html
+
+##### Homebrew常规使用教程：https://www.jianshu.com/p/d7013f24f342
+
+##### Mac OS下安装配置mysql8.0：https://www.jianshu.com/p/fd84d9ae14c1
+
+网盘上：Navicat for MySQL 12.1.19 [MacSKY].dmg
+
+ssh: brew cask install royal-tsx
+
+##### 在Mac上使用Royal TSX: https://guozh.net/macos-shell-royal-tsx-item2-ssh-ftp/
+
+编程相关推荐，很不错：https://www.zhihu.com/question/27617980/answer/919642075
