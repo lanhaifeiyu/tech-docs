@@ -84,6 +84,8 @@ http://blog.lanyus.com/archives/317.html
 idea:
 https://zhile.io/2018/08/17/jetbrains-license-server-crack.html
 
+https://zhile.io/custom-license.html
+
 
 
 ##### 打造Mac下最强终端，iTerm2 + Oh My Zsh + powerlevel9k: https://feeeei.com/archives/27/
@@ -108,3 +110,54 @@ https://zhile.io/2018/08/17/jetbrains-license-server-crack.html
 
 -----------------------------------------------------------------------------------------------------------
 
+##### mac idea: key is invalid:
+
+https://www.cnblogs.com/zxtceq/p/13167732.html
+
+https://www.jiweichengzhu.com/article/e1b6f944b88347d7a2bdac56bc6681d9
+
+```yaml
+#0.0.0.0 account.jetbrains.com
+0.0.0.0 https://account.jetbrains.com:443
+127.0.0.1       activate.navicat.com
+```
+
+##### jrebel:
+
+https://github.com/ilanyu/ReverseProxy
+
+https://github.com/ilanyu/ReverseProxy/releases/tag/v1.4
+
+```yaml
+#--- idea jrebel account
+http://127.0.0.1:8756/511bd7e8-4fae-43a5-b596-16516c0bfaa8
+airson_yu@163.com
+
+#--- windows jrebel server
+@echo off
+
+echo.
+echo ------ step2 init jrebel ------
+cd /d D:\jar_dependency\jrebel
+ReverseProxy_windows_amd64.exe -l "0.0.0.0:8756"
+
+#--- idea vm options
+#-javaagent:D:\jar_dependency\idea\jetbrains-agent.jar
+#-javaagent:C:\Users\Public\.jetbrains\jetbrains-agent-v3.1.3.0cd4.033
+#-javaagent:C:\Users\Public\.jetbrains\jetbrains-agent-v3.2.0.de72.619
+-javaagent:C:\Users\Public\.jetbrains\jetbrains-agent-v3.2.0.de72.619
+
+#jrebel的server可以试试能不能部署到云服务器上，这样就不用本地启Server了
+firewall-cmd --add-port=8756/tcp --zone=public --permanent
+firewall-cmd --reload
+nohup /usr/local/lh/jrebel/ReverseProxy_linux_amd64 -l "0.0.0.0:8756" > /home/nohup_jrebel.log 2>&1 &
+
+#成功: http://175.24.103.167:8756/511bd7e8-4fae-43a5-b596-16516c0bfaa8
+#--- final idea jrebel account
+http://175.24.103.167:8756/511bd7e8-4fae-43a5-b596-16516c0bfaa8
+airson_yu@163.com
+```
+
+
+
+##### 2020年金钱可以买到的6种最佳Mac键盘（经过手工比较和测试）: https://wpjian.com/tips/2019121828742.html
