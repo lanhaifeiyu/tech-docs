@@ -174,4 +174,42 @@ ssh: brew cask install royal-tsx
 
 ##### 在Mac上使用Royal TSX: https://guozh.net/macos-shell-royal-tsx-item2-ssh-ftp/
 
-编程相关推荐，很不错：https://www.zhihu.com/question/27617980/answer/919642075
+##### 编程相关推荐，很不错：https://www.zhihu.com/question/27617980/answer/919642075
+
+##### trojan：
+
+https://github.com/trojan-tutor/Trojan-Qt5
+https://github.com/trojan-tutor/trojan-tutor.github.io
+https://trojan-tutor.github.io/2019/04/10/p41.html#more
+
+##### trojan mac客户端配置教程：https://hijk.pp.ua/trojan-mac-client-config-tutorial/
+
+
+
+##### macos 鼠标滚轮设置：
+
+https://sspai.com/post/40596
+
+https://www.jianshu.com/p/2fdd2e147fd0
+
+1、首先打开左上角全局菜单中的“偏好设置”
+
+2、然后在偏好设置中找到“鼠标”点击进去
+
+3、最后在“鼠标”设置中把“滚动方向：自然”前面的勾去掉就和windows中一样了。
+
+
+
+##### 软件市场：
+
+https://www.macw.com/list/7_0_1.html
+
+https://www.macwk.com/soft/development/p1?cid=39,16,40
+
+
+
+[Navicat Premium](https://www.navicat.com.cn/products/navicat-premium/)：https://www.navicat.com.cn/download/navicat-premium
+
+**Navicat 15 keygen for Mac 安装教程**：https://www.52pojie.cn/thread-1101529-1-1.html
+
+##### Navicat 15 keygen for Mac 安装教程：https://www.7i5.com/1226.html
