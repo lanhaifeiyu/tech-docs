@@ -104,6 +104,14 @@ https://zhile.io/custom-license.html
 
 
 
+##### iterm2 + oh-my-zsh + tmux + gitup  
+
+##### iTerm2 + Oh My Zsh + powerlevel9k 
+
+##### iTerm2+zsh+powerlevel9k+vim+virtualenv
+
+
+
 一个手指就相当于鼠标本身，轻按表示左键点一下，可以调节灵敏度使得不离开触屏即可点到屏幕每个角落；
 两个手指上下滑动控制页面，左右滑动控制前进后退，旋转可以控制图片旋转，放缩可以放缩界面，同时轻按可以触发右键；
 三个手指相当于左键按住不放；
@@ -174,7 +182,7 @@ ssh: brew cask install royal-tsx
 
 ##### 在Mac上使用Royal TSX: https://guozh.net/macos-shell-royal-tsx-item2-ssh-ftp/
 
-编程相关推荐，很不错：https://www.zhihu.com/question/27617980/answer/919642075
+##### 编程相关推荐，很不错：https://www.zhihu.com/question/27617980/answer/919642075
 
 ##### 软件代理商要求下架，如有疑问请联系QQ：3471296708 早9点 - 晚9点在线：
 
@@ -185,4 +193,67 @@ https://www.macwk.com/soft/parallels-desktop
 https://www.macwk.com/soft/cleanmymac-x
 
 https://www.macwk.com/soft/pdf-expert
+
+
+##### trojan：
+
+https://github.com/trojan-tutor/Trojan-Qt5
+https://github.com/trojan-tutor/trojan-tutor.github.io
+https://trojan-tutor.github.io/2019/04/10/p41.html#more
+
+##### trojan mac客户端配置教程：https://hijk.pp.ua/trojan-mac-client-config-tutorial/
+
+
+
+##### macos 鼠标滚轮设置：
+
+https://sspai.com/post/40596
+
+https://www.jianshu.com/p/2fdd2e147fd0
+
+1、首先打开左上角全局菜单中的“偏好设置”
+
+2、然后在偏好设置中找到“鼠标”点击进去
+
+3、最后在“鼠标”设置中把“滚动方向：自然”前面的勾去掉就和windows中一样了。
+
+
+
+##### 软件市场：
+
+https://www.macw.com/list/7_0_1.html
+
+https://www.macwk.com/soft/development/p1?cid=39,16,40
+
+
+
+[Navicat Premium](https://www.navicat.com.cn/products/navicat-premium/)：https://www.navicat.com.cn/download/navicat-premium
+
+**Navicat 15 keygen for Mac 安装教程**：https://www.52pojie.cn/thread-1101529-1-1.html
+
+##### Navicat 15 keygen for Mac 安装教程：https://www.7i5.com/1226.html
+
+
+
+##### Mac上安装程序ZIP软件：
+
+从软件官网或其他渠道获得 .dmg 或 .zip。然后：
+
+- 双击 .dmg，将里面的 .app 拖进应用程序目录。
+- 双击 .dmg，双击里面的 .pkg 安装文件按指示安装。这种多见于大型软件。
+- 打开 .zip，将里面的 .app 拖进应用程序目录。
+
+
+
+[Mac App Store](https://www.apple.com/cn/macos/) ： Thor    （设定快捷键，快速在应用之间切换。）
+
+```shell
+#zsh + Oh My Zsh: https://ohmyz.sh/
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+
+
+##### 程序员用 Mac 都有哪些必备的 app？: https://www.zhihu.com/question/20036899/answer/89884433
+
 
