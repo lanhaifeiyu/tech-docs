@@ -175,3 +175,14 @@ ssh: brew cask install royal-tsx
 ##### 在Mac上使用Royal TSX: https://guozh.net/macos-shell-royal-tsx-item2-ssh-ftp/
 
 编程相关推荐，很不错：https://www.zhihu.com/question/27617980/answer/919642075
+
+##### 软件代理商要求下架，如有疑问请联系QQ：3471296708 早9点 - 晚9点在线：
+
+https://www.macwk.com/soft/crossover
+
+https://www.macwk.com/soft/parallels-desktop
+
+https://www.macwk.com/soft/cleanmymac-x
+
+https://www.macwk.com/soft/pdf-expert
+
