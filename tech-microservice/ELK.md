@@ -276,3 +276,14 @@ http://codepub.cn/2017/09/29/logstash-offline-install-plugin/
 https://github.com/logstash-plugins?q=&type=&language=
 
 https://yangxx.net/?p=3189
+
+**删除ES文件：**
+
+https://www.qedev.com/bigdata/158587.html
+https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
+
+```shell
+#清空索引，释放磁盘空间
+curl -X DELETE "localhost:9200/_all?pretty"
+```
+
