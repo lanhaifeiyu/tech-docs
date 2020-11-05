@@ -285,5 +285,8 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-i
 ```shell
 #清空索引，释放磁盘空间
 curl -X DELETE "localhost:9200/_all?pretty"
+
+#删除7天以前的数据
+curl -H'Content-Type:application/json' -d'{"query":{"range":{"@timestamp":{"lt":"now-7d","format":"epoch_millis"}}}} ' -XPOST "http://localhost:9200/*-*/_delete_by_query?pretty"
 ```
 
