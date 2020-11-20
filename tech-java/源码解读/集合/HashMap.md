@@ -1,6 +1,6 @@
 ##### 这几道Java集合框架面试题在面试中几乎必问：https://juejin.im/post/5b7e955be51d4538de11550c
 
-
+##### [Java 8系列之重新认识HashMap](https://tech.meituan.com/2016/06/24/java-hashmap.html): https://tech.meituan.com/2016/06/24/java-hashmap.html
 
 ##### HashMap中(tab.length - 1) & hash的神奇之处：https://www.jianshu.com/p/2d86f83d1d26
 
@@ -14,7 +14,14 @@
 
 我们首先可能会想到采用%取余的操作来实现。但是，重点来了：**“取余(%)操作中如果除数是2的幂次则等价于与其除数减一的与(&)操作（也就是说 hash%length==hash&(length-1)的前提是 length 是2的 n 次方；）。”** 并且 **采用二进制位操作 &，相对于%能够提高运算效率，这就解释了 HashMap 的长度为什么是2的幂次方。**
 
-
+```java
+// jdk8+ (openjdk15)
+// 通过hashCode()的高16位异或低16位实现的：(h = k.hashCode()) ^ (h >>> 16)，主要是从速度、功效、质量来考虑的，这么做可以在数组table的length比较小的时候，也能保证考虑到高低Bit都参与到Hash的计算中，同时不会有太大的开销
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+}
+```
 
 **5.**  **HashMap和HashTable的对比**
 
