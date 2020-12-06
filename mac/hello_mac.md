@@ -205,6 +205,18 @@ https://trojan-tutor.github.io/2019/04/10/p41.html#more
 
 
 
+#### MAC实际使用：
+
+##### trojanX: https://github.com/trojan-gfw/trojan/releases/
+
+[MacOS Big sur, TrojanX is not work!](https://github.com/JimLee1996/TrojanX/issues/31#)#31：https://github.com/JimLee1996/TrojanX/issues/31
+
+##### 服务器列表：其他参考gui-config.json
+
+address: ty1-1.sstr-api.xyz	port: 443	pswd: 4a3ufeNYtZCPVBsYY6
+
+
+
 ##### macos 鼠标滚轮设置：
 
 https://sspai.com/post/40596
