@@ -61,3 +61,9 @@ mkdir -p /usr/local/gitea && cd /usr/local/gitea
 wget -O gitea https://dl.gitea.io/gitea/1.12.3/gitea-1.12.3-linux-amd64 && chmod +x gitea
 ```
 
+##### [Filename too long in Git for Windows](https://stackoverflow.com/questions/22575662/filename-too-long-in-git-for-windows)
+
+```shell
+git config --system core.longpaths true
+```
+
