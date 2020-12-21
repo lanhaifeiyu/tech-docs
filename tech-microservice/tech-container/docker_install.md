@@ -1,4 +1,5 @@
 https://docs.docker.com/engine/install/centos/
+https://www.cnblogs.com/andrew3/p/12941903.html
 
 ```shell
 sudo yum remove docker \
@@ -20,4 +21,14 @@ sudo systemctl start docker
 
 sudo docker run hello-world
 ```
+
+
+
+##### [IDEA连接远程服务器Docker部署Spring Boot项目](https://www.cnblogs.com/andrew3/p/13043042.html): https://www.cnblogs.com/andrew3/p/13043042.html
+
+
+
+
+
+
 
