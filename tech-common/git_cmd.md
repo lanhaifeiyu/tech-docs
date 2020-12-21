@@ -40,6 +40,11 @@ git checkout tmp_safecheck
 git branch new_branch
 git push --set-upstream origin new_branch
 
+#删除分支
+git branch -r -d origin/branch-name
+#删除分支-远端
+git push origin :branch-name
+
 #PUSH分支
 git push
 
@@ -48,6 +53,11 @@ git checkout tmp_zone_large_safecheck && git tag R08.00.70-ZLU
 git checkout tmp_safecheck && git tag R04.05.70
 #删除标签
 git tag -d xxx
+#删除标签-远端
+git push origin :refs/tags/标签名
+git push origin :refs/tags/R08.03.107-ZLU-hotfix
+git push origin --delete tag R08.03.107-ZLU-hotfix
+git push origin --delete refs/tags/${tagname}
 
 #PUSH标签
 git push origin --tags
