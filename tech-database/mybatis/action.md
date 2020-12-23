@@ -1,11 +1,3 @@
-Date类型的参数不能判断是否为空字符串
-
-```
-<if test="planDelTime != null and planDelTime != ''">
-
-Caused by: java.lang.IllegalArgumentException: invalid comparison: java.util.Date and java.lang.String
-```
-
 ##### [Mybatis批量更新三种方式](https://segmentfault.com/a/1190000018084851): https://segmentfault.com/a/1190000018084851
 
 ```
