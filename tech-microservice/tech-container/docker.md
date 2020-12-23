@@ -4,6 +4,10 @@
 
 ##### 2020年最完整的Docker v19.x入门教程: https://www.jianshu.com/p/6d44b7d1a267
 
+##### 一杯茶的时间，上手 Docker:  https://tuture.co/2020/01/01/442cc8d/
+
+**阿里云容器镜像服务**： https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
+
 ##### win10使用WSL 2运行Docker Desktop，运行文件从C盘迁移到其他目录：https://cloud.tencent.com/developer/article/1679501
 
 ```shell
