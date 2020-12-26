@@ -1,0 +1,1 @@
+jetbrains eval reset plugin repo url: https://plugins.zhile.io
