@@ -60,3 +60,14 @@ AND 0011
 
 ```
 
+##### 自定义base64内容，base64转16进制，字符串16进制，16进制转base64
+
+一个16进制数占4bit，一个byte(8bit)由两个16进制数表示
+#自定义base64内容
+##字符串转16进制（在这里自由输入原始内容）
+https://www.bejson.com/convert/ox2str/
+##base64转16进制（原内容）
+https://the-x.cn/zh-cn/base64
+##16进制转base64
+https://the-x.cn/zh-cn/base64
+
