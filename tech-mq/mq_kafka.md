@@ -79,3 +79,54 @@ kafka-topics.bat -list -zookeeper localhost:2181
 kafka-topics.bat --delete --zookeeper localhost:2181 --topic test6
 ```
 
+
+
+## Linux操作
+
+https://kafka.apache.org/quickstart
+
+Linux版kafka启动方式
+
+```shell
+#在bin的上一级目录执行命令：
+#加守护进程启动
+bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+bin/kafka-server-start.sh -daemon config/server.properties
+
+#通过后台来启动
+nohup bin/zookeeper-server-start.sh config/server.properties > /dev/null 2>&1 &
+nohup bin/kafka-server-start.sh config/server.properties > /dev/null 2>&1 &
+```
+
+单独启动zookeeper
+
+##### kafka集群搭建(单机伪集群): https://zygood.club/2020/01/11/kafkacolony/
+
+##### 10分钟搭建单机Kafka集群: https://zhuanlan.zhihu.com/p/136758040
+
+```shell
+#81 server
+#/usr/local/lh/zookeeper1/bin/zkServer.sh status        
+#/usr/local/lh/zookeeper1/bin/zkServer.sh stop
+/usr/local/lh/zookeeper1/bin/zkServer.sh start
+/usr/local/lh/zookeeper3/bin/zkServer.sh start
+/usr/local/lh/zookeeper5/bin/zkServer.sh start
+
+#167 server
+/usr/local/lh/zookeeper2/bin/zkServer.sh start
+/usr/local/lh/zookeeper4/bin/zkServer.sh start
+
+nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server1.properties > /home/lh/log/kafka1/startup.log 2>&1 &
+
+nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server3.properties > /home/lh/log/kafka3/startup.log 2>&1 &
+
+nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server5.properties > /home/lh/log/kafka5/startup.log 2>&1 &
+
+nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server2.properties > /home/lh/log/kafka2/startup.log 2>&1 &
+
+nohup /usr/local/lh/kafka/bin/kafka-server-start.sh /usr/local/lh/kafka/config/server4.properties > /home/lh/log/kafka4/startup.log 2>&1 &
+```
+
+1 partitions have leader brokers without a matching listener, including [test-0]: 
+
+https://www.jianshu.com/p/99946b659924
