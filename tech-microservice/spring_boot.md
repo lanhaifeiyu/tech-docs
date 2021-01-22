@@ -9,8 +9,9 @@
 4. 打包成war包后，利用`java -jar xxx.war`运行
 
    ```shell
-   java -jar tech-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=node1
+   nohup java -jar im-server-rest-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod > nohup-im-rest.log 2>&1 &
    java -jar tech-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=node2
+   java -jar tech-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=node1
    
    nohup java -jar statistics.jar > logs/catalina.out.log 2>&1 &
    ps -ef|grep java

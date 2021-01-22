@@ -105,6 +105,8 @@ nohup bin/kafka-server-start.sh config/server.properties > /dev/null 2>&1 &
 ##### 10分钟搭建单机Kafka集群: https://zhuanlan.zhihu.com/p/136758040
 
 ```shell
+# myid文件缺失导致zookeeper无法启动（myid file is missing）https://blog.csdn.net/u010842515/article/details/51147016
+
 #81 server
 #/usr/local/lh/zookeeper1/bin/zkServer.sh status        
 #/usr/local/lh/zookeeper1/bin/zkServer.sh stop
