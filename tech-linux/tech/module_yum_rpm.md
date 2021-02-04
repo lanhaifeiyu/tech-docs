@@ -16,6 +16,8 @@
    yum makecache
    yum check-update
    yum update
+   yum list installed | grep elasticsearch
+   yum update elasticsearch
    ```
 
 3. ##### 安装系统常用包：注意设置enable对应版本
