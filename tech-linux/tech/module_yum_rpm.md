@@ -16,8 +16,13 @@
    yum makecache
    yum check-update
    yum update
+   # update elasticsearch,logstash,fielbeat,kibana,redis,zookeeper,kafka,rabbitmq,nginx,tomcat,mysql,jdk
    yum list installed | grep elasticsearch
-   yum update elasticsearch
+   yum update elasticsearch --setopt=usr_w_check=false
+   yum update logstash.x86_64  --setopt=usr_w_check=false
+   yum update filebeat  --setopt=usr_w_check=false
+   yum update kibana  --setopt=usr_w_check=false
+   
    ```
 
 3. ##### 安装系统常用包：注意设置enable对应版本
