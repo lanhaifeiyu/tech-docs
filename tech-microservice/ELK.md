@@ -290,3 +290,5 @@ curl -X DELETE "localhost:9200/_all?pretty"
 curl -H'Content-Type:application/json' -d'{"query":{"range":{"@timestamp":{"lt":"now-7d","format":"epoch_millis"}}}} ' -XPOST "http://localhost:9200/*-*/_delete_by_query?pretty"
 ```
 
+
+
