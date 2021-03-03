@@ -7,7 +7,8 @@ Version 8.0.16
 CREATE DATABASE IF NOT EXISTS tech_share DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
-<!--备注：COLLATE(排序):_ci结尾表示大小写不敏感（caseinsensitive）,_cs表示大小写敏感（case sensitive）,_bin表示二进制的比较（binary）-->
+<!--备注：COLLATE(核验、排序):_ci结尾表示大小写不敏感（case insensitive）,_cs表示大小写敏感（case  sensitive）,_bin表示二进制的比较（binary）
+utf8mb4_0900_ai_ci: _ai:accent insenstive, _as:accent sensitive accent:口音，音调-->
 
 <!--utf8mb4_unicode_ci 是基于标准的Unicode来排序和比较，能够在各种语言之间精确排序；
     utf8mb4_general_ci 没有实现Unicode排序规则，在遇到某些特殊语言或字符是，排序结果可能不是所期望的。utf8mb4_general_ci 在比较和排序的时候更快

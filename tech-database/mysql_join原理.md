@@ -26,3 +26,10 @@ INSERT INTO ``(`id`, `select_type`, `table`, `partitions`, `type`, `possible_key
 ##### MySQL · 性能优化 · MySQL常见SQL错误用法: http://mysql.taobao.org/monthly/2017/03/03/
 
 ##### 【MySQL】MySQL性能优化之Block Nested-Loop Join(BNL): http://blog.itpub.net/22664653/viewspace-1692317/
+
+
+
+Simple Nested-Loop Join
+Index Nested-Loop Join	NLJ
+Block Nested-Loop Join	BNL
+从 MySQL8.0.18 开始已经支持 hash join 了，原本选择 BNL 算法的场景会直接使用 hash join，效率提升不止一点点
