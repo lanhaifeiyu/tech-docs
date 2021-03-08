@@ -17,3 +17,28 @@ X % 2^n = X & (2^n – 1)
 从2进制角度来看，X / 8相当于 X >> 3，即把X右移3位，此时得到了X / 8的商，而被移掉的部分(后三位)，则是X % 8，也就是余数。
 ```
 
+##### java 整数除法：https://www.jianshu.com/p/e3f7b47cae30
+
+https://blog.csdn.net/u011514810/article/details/52754157
+
+整数除法会直接去掉结果的小数位，而不是四舍五入地圆整结果。/ 除， %取余
+
+```java
+9%4 = 1 // 取余
+9/4 = 2 //除
+3%10 = 3 // 取余
+3/10 = 0 //除
+  
+int a = 10;
+int b = 3;
+double c= a / b;
+System.out.println(c);
+//第一段代码的运行结果是3.0， 其中double c = a / b;//c = (10/3) = (double)3 = 3.0，这里面涉及到一个低精度到高精度的隐式装换。
+
+int a = 10;
+int b = 3;
+double c= (double)a / b;
+System.out.println(c);
+//第二段代码的运行结果是3.3333333333333335，其中double c = (double)a / b;等价于double c= 10.0 / 3.0;
+```
+
