@@ -1,5 +1,6 @@
 https://zh.wikipedia.org/wiki/位操作
 https://blog.csdn.net/MoreWindows/article/details/7354571
+原码、反码、补码，计算机中负数的表示：https://zhuanlan.zhihu.com/p/47719434
 
 ```
 
