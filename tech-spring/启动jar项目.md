@@ -4,3 +4,5 @@
 
 nohup java -jar yourapp.jar &
 
+nohup java -jar poc-abc-0.0.1-SNAPSHOT.jar > /home/sa_cluster/poc_abc/nohup.log 2>&1 &
+

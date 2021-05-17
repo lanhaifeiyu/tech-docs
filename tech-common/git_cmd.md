@@ -10,6 +10,9 @@ git help -a
 git help -g
 git help push
 
+#查看当前状态，未添加，已修改，未提交等
+git status
+
 #取回所有分支的更新
 git fetch
 
@@ -27,6 +30,7 @@ git checkout large_zone_release && git pull
 #添加所有未追踪的文件
 git add -A
 git add --all
+git add -i #交互式添加，回车为确认
 
 #commit代码
 git commit -m "commit message"
