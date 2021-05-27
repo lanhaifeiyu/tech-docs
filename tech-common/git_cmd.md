@@ -67,5 +67,11 @@ git push origin --delete refs/tags/${tagname}
 git push origin --tags
 git push origin --tags -f
 
+#IDEA中把多次commit合并成一次和覆盖上一次Commit
+#https://blog.csdn.net/huangjhai/article/details/109557946
+#需要注意的是只在自己的开发分支做这样的操作，需要在 push 的时候，选择 force push，不然后续不管是merger还是rebase服务器始终会覆盖本地，造成失败。
+
+# 修改已经提交的记录的 author
+git commit --amend --author="虞荣华 <yuronghua@sensorsdata.cn>"
 ```
 
